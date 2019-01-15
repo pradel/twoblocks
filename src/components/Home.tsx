@@ -69,7 +69,11 @@ export const Home = () => {
         )}
       </Grid>
 
-      <AddAccount open={modalOpen} onClose={() => setModalOpen(false)} />
+      <AddAccount
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+        setFile={setFile}
+      />
 
       {file && (
         <Fab className={classes.fab} onClick={() => setModalOpen(true)}>

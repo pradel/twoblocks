@@ -1,7 +1,4 @@
-import {
-  getFile as getFileBlockstack,
-  putFile as putFileBlockstack,
-} from 'blockstack';
+import * as blockstack from 'blockstack';
 import { Account } from '../types';
 
 const fileName = '2fa.json';
@@ -15,7 +12,7 @@ export interface File {
  * Initialize the file if some values are missing
  */
 export const getFile = async (): Promise<File> => {
-  let file = await getFileBlockstack(fileName);
+  let file = await blockstack.getFile(fileName);
   if (file) {
     file = JSON.parse(file);
   }
@@ -32,7 +29,7 @@ export const getFile = async (): Promise<File> => {
  * Save the file on the storage
  */
 export const putFile = async (file: File): Promise<void> => {
-  await putFileBlockstack(fileName, JSON.stringify(file));
+  await blockstack.putFile(fileName, JSON.stringify(file));
 };
 
 /**

@@ -13,7 +13,7 @@ import {
 import { SlideProps } from '@material-ui/core/Slide';
 import { ArrowBack } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/styles';
-import { addAccount } from '../utils/accounts';
+import { addAccount, File } from '../utils/accounts';
 
 const useStyles = makeStyles(theme => ({
   flex: {
@@ -33,6 +33,7 @@ const useStyles = makeStyles(theme => ({
 interface Props {
   open: boolean;
   onClose: () => void;
+  setFile: (file: File) => void;
 }
 
 function Transition(props: SlideProps) {
@@ -45,21 +46,37 @@ export const AddAccount = (props: Props) => {
     name: '',
     secret: '',
   });
+  const [errors, setErrors] = useState({
+    name: false,
+    secret: false,
+  });
 
   const handleChange = (name: string) => (event: any) => {
     setValues({ ...values, [name]: event.target.value });
   };
 
   const handleSubmit = async () => {
-    // TODO validation messages
-    if (values.name !== '' && values.secret !== '') {
-      try {
-        const file = await addAccount(values);
-        // TODO update main store
-        props.onClose();
-      } catch (error) {
-        alert(error.message);
-      }
+    setErrors({ name: false, secret: false });
+
+    if (!values.name || values.name === '') {
+      setErrors({ ...errors, name: true });
+      return;
+    }
+    if (!values.secret || values.secret === '') {
+      setErrors({ ...errors, secret: true });
+      return;
+    }
+    try {
+      const file = await addAccount(values);
+
+      setValues({
+        name: '',
+        secret: '',
+      });
+      props.setFile(file);
+      props.onClose();
+    } catch (error) {
+      alert(error.message);
     }
   };
 
@@ -97,6 +114,7 @@ export const AddAccount = (props: Props) => {
               value={values.name}
               onChange={handleChange('name')}
               margin="normal"
+              error={errors.name}
             />
 
             <TextField
@@ -105,6 +123,7 @@ export const AddAccount = (props: Props) => {
               value={values.secret}
               onChange={handleChange('secret')}
               margin="normal"
+              error={errors.secret}
             />
           </form>
         </Grid>
