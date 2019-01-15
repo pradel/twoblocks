@@ -9,14 +9,13 @@ import {
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { Add } from '@material-ui/icons';
-import * as blockstack from 'blockstack';
 import { getFile, File } from '../utils/accounts';
 import { AccountList } from './AccountList';
 import { AddAccount } from './AddAccount';
 
 const useStyles = makeStyles(theme => ({
   fab: {
-    position: 'absolute',
+    position: 'fixed',
     bottom: theme.spacing.unit * 2,
     right: theme.spacing.unit * 2,
   },
