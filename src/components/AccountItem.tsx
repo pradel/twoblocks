@@ -1,7 +1,13 @@
-import React from 'react';
-import { Typography, Paper, IconButton } from '@material-ui/core';
+import React, { useState } from 'react';
+import {
+  Typography,
+  Paper,
+  IconButton,
+  Menu,
+  MenuItem,
+} from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
-import { Edit } from '@material-ui/icons';
+import { MoreVert } from '@material-ui/icons';
 import * as speakeasy from 'speakeasy';
 import { Account } from '../types';
 
@@ -33,6 +39,8 @@ interface Props {
 
 export const AccountItem = (props: Props) => {
   const classes = useStyles();
+  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
+  const open = Boolean(anchorEl);
 
   return (
     <Paper elevation={1} className={classes.container}>
@@ -43,9 +51,22 @@ export const AccountItem = (props: Props) => {
         </Typography>
       </div>
       <div className={classes.timer}>
-        <IconButton>
-          <Edit fontSize="small" />
+        <IconButton
+          aria-owns={anchorEl ? 'account-menu' : undefined}
+          aria-haspopup="true"
+          onClick={event => setAnchorEl(event.currentTarget)}
+        >
+          <MoreVert fontSize="small" />
         </IconButton>
+        <Menu
+          id="account-menu"
+          anchorEl={anchorEl}
+          open={open}
+          onClose={() => setAnchorEl(null)}
+        >
+          <MenuItem onClick={() => null}>Edit</MenuItem>
+          <MenuItem onClick={() => null}>Delete</MenuItem>
+        </Menu>
         <Typography>{props.remainingSeconds}</Typography>
       </div>
     </Paper>
