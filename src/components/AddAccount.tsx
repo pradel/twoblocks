@@ -55,7 +55,7 @@ export const AddAccount = (props: Props) => {
     if (values.name !== '' && values.secret !== '') {
       try {
         const file = await addAccount(values);
-        // TODO update main store, use context ?
+        // TODO update main store
         props.onClose();
       } catch (error) {
         alert(error.message);

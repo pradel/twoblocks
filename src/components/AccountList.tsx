@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { File } from '../utils/accounts';
+import { AccountItem } from './AccountItem';
 
 const getRemainingSeconds = () => {
   const currentSeconds = new Date().getSeconds();
@@ -31,5 +32,12 @@ export const AccountList = (props: Props) => {
     },
     [false]
   );
-  return <div>{seconds}</div>;
+
+  return (
+    <React.Fragment>
+      {props.file.accounts.map((account, index) => (
+        <AccountItem key={index} account={account} remainingSeconds={seconds} />
+      ))}
+    </React.Fragment>
+  );
 };
