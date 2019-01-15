@@ -67,6 +67,7 @@ export const AddAccount = (props: Props) => {
       return;
     }
     try {
+      // TODO loading while adding the account
       const file = await addAccount(values);
 
       setValues({
