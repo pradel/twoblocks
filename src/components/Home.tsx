@@ -11,6 +11,8 @@ import { makeStyles } from '@material-ui/styles';
 import { Add } from '@material-ui/icons';
 import * as blockstack from 'blockstack';
 import { getFile, File } from '../utils/accounts';
+import { AccountList } from './AccountList';
+import { AddAccount } from './AddAccount';
 
 const useStyles = makeStyles(theme => ({
   fab: {
@@ -30,10 +32,12 @@ const useStyles = makeStyles(theme => ({
 export const Home = () => {
   const classes = useStyles();
   const [file, setFile] = useState<null | File>(null);
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(
     () => {
       getFile().then(file => {
+        console.log(file);
         setFile(file);
       });
       // TODO catch error
@@ -57,10 +61,18 @@ export const Home = () => {
             <CircularProgress />
           </Grid>
         )}
+
+        {file && (
+          <Grid item xs={12}>
+            <AccountList file={file} />
+          </Grid>
+        )}
       </Grid>
 
+      <AddAccount open={modalOpen} onClose={() => setModalOpen(false)} />
+
       {file && (
-        <Fab className={classes.fab}>
+        <Fab className={classes.fab} onClick={() => setModalOpen(true)}>
           <Add />
         </Fab>
       )}
