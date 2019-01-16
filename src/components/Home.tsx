@@ -54,7 +54,7 @@ export const Home = () => {
         </Toolbar>
       </AppBar>
 
-      <Grid container spacing={24} className={classes.container}>
+      <Grid container className={classes.container}>
         {!file && (
           <Grid item xs={12} className={classes.loadingContainer}>
             <CircularProgress />
@@ -75,7 +75,11 @@ export const Home = () => {
       />
 
       {file && (
-        <Fab className={classes.fab} onClick={() => setModalOpen(true)}>
+        <Fab
+          className={classes.fab}
+          onClick={() => setModalOpen(true)}
+          color="primary"
+        >
           <Add />
         </Fab>
       )}
