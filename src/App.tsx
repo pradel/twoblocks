@@ -5,6 +5,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import * as blockstack from 'blockstack';
 import { Login } from './components/Login';
 import { Home } from './components/Home';
+import { Loader } from './components/Loader';
 
 const theme = createMuiTheme({
   typography: {
@@ -14,15 +15,21 @@ const theme = createMuiTheme({
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(!!blockstack.isUserSignedIn());
+  const [loggingIn, setLoggingIn] = useState(!!blockstack.isSignInPending());
 
   useEffect(
     () => {
       if (blockstack.isSignInPending()) {
-        // TODO create loader during the promise
-        blockstack.handlePendingSignIn().then(() => {
-          setLoggedIn(true);
-        });
-        // TODO catch error
+        blockstack
+          .handlePendingSignIn()
+          .then(() => {
+            setLoggingIn(false);
+            setLoggedIn(true);
+          })
+          .catch((error: any) => {
+            setLoggingIn(false);
+            alert(error.message);
+          });
       }
     },
     [false]
@@ -31,8 +38,9 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      {!loggedIn && <Login />}
-      {loggedIn && <Home />}
+      {!loggingIn && !loggedIn && <Login />}
+      {!loggingIn && loggedIn && <Home />}
+      {loggingIn && <Loader />}
     </ThemeProvider>
   );
 };
