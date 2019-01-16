@@ -30,6 +30,10 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     flexDirection: 'column',
   },
+  menuIconButton: {
+    paddingTop: theme.spacing.unit / 2,
+    paddingBottom: theme.spacing.unit,
+  },
 }));
 
 interface Props {
@@ -55,6 +59,7 @@ export const AccountItem = (props: Props) => {
           aria-owns={anchorEl ? 'account-menu' : undefined}
           aria-haspopup="true"
           onClick={event => setAnchorEl(event.currentTarget)}
+          className={classes.menuIconButton}
         >
           <MoreVert fontSize="small" />
         </IconButton>
