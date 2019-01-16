@@ -14,20 +14,16 @@ interface Props {
 }
 
 export const AccountList = (props: Props) => {
-  const [intervalId, setIntervalId] = useState<NodeJS.Timer | null>(null);
   const [seconds, setSeconds] = useState(0);
 
   useEffect(
     () => {
-      const intervalIdTmp = setInterval(() => {
+      const intervalId = setInterval(() => {
         setSeconds(getRemainingSeconds());
       }, 1000);
-      setIntervalId(intervalIdTmp);
 
       return function cleanup() {
-        if (intervalId) {
-          clearInterval(intervalId);
-        }
+        clearInterval(intervalId);
       };
     },
     [false]
