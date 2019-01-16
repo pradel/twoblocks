@@ -6,14 +6,21 @@ import {
   Fab,
   CircularProgress,
   Grid,
+  IconButton,
+  Menu,
+  MenuItem,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
-import { Add } from '@material-ui/icons';
+import { Add, MoreVert } from '@material-ui/icons';
+import * as blockstack from 'blockstack';
 import { getFile, File } from '../utils/accounts';
 import { AccountList } from './AccountList';
 import { AddAccount } from './AddAccount';
 
 const useStyles = makeStyles(theme => ({
+  flex: {
+    flex: 1,
+  },
   fab: {
     position: 'fixed',
     bottom: theme.spacing.unit * 2,
@@ -32,6 +39,8 @@ export const Home = () => {
   const classes = useStyles();
   const [file, setFile] = useState<null | File>(null);
   const [modalOpen, setModalOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
+  const menuOpen = Boolean(anchorEl);
 
   useEffect(
     () => {
@@ -48,9 +57,30 @@ export const Home = () => {
     <React.Fragment>
       <AppBar>
         <Toolbar>
-          <Typography variant="h6" color="inherit">
+          <Typography variant="h6" color="inherit" className={classes.flex}>
             Twoblocks
           </Typography>
+
+          <IconButton
+            aria-owns={anchorEl ? 'main-menu' : undefined}
+            aria-haspopup="true"
+            onClick={event => setAnchorEl(event.currentTarget)}
+            color="inherit"
+          >
+            <MoreVert fontSize="small" />
+          </IconButton>
+          <Menu
+            id="main-menu"
+            anchorEl={anchorEl}
+            open={menuOpen}
+            onClose={() => setAnchorEl(null)}
+          >
+            <MenuItem
+              onClick={() => blockstack.signUserOut(window.location.origin)}
+            >
+              Logout
+            </MenuItem>
+          </Menu>
         </Toolbar>
       </AppBar>
 

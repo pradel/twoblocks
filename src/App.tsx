@@ -12,8 +12,6 @@ const theme = createMuiTheme({
   },
 });
 
-// TODO logout button
-
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(!!blockstack.isUserSignedIn());
 
