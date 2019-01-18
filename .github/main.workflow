@@ -4,18 +4,18 @@ workflow "Build and test" {
 }
 
 action "Install" {
-  uses = "nuxt/actions-yarn@node-11"
+  uses = "node:10"
   args = "install"
 }
 
 action "Build" {
-  uses = "nuxt/actions-yarn@node-11"
+  uses = "node:10"
   needs = ["Install"]
   args = "build"
 }
 
 action "Test" {
-  uses = "nuxt/actions-yarn@node-11"
+  uses = "node:10"
   needs = ["Install"]
   args = "test"
 }
