@@ -5,17 +5,17 @@ workflow "Build and test" {
 
 action "Install" {
   uses = "docker://node:10"
-  args = "install"
+  args = "yarn install"
 }
 
 action "Build" {
   uses = "docker://node:10"
   needs = ["Install"]
-  args = "build"
+  args = "yarn build"
 }
 
 action "Test" {
   uses = "docker://node:10"
   needs = ["Install"]
-  args = "test"
+  args = "yarn test"
 }
