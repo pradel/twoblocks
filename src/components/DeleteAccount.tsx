@@ -31,6 +31,7 @@ export const DeleteAccount = ({
     const file = await removeAccount(accountIndex);
     onClose();
     setFile(file);
+    // TODO success snackbar
   };
 
   return (

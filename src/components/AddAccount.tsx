@@ -77,6 +77,7 @@ export const AddAccount = (props: Props) => {
       });
       props.setFile(file);
       props.onClose();
+      // TODO success snackbar
     } catch (error) {
       alert(error.message);
     }
