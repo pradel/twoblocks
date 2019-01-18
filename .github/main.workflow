@@ -4,18 +4,18 @@ workflow "Build and test" {
 }
 
 action "Install" {
-  uses = "node:10"
+  uses = "node@10"
   args = "install"
 }
 
 action "Build" {
-  uses = "node:10"
+  uses = "node@10"
   needs = ["Install"]
   args = "build"
 }
 
 action "Test" {
-  uses = "node:10"
+  uses = "node@10"
   needs = ["Install"]
   args = "test"
 }
