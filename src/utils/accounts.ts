@@ -41,3 +41,13 @@ export const addAccount = async (account: Account): Promise<File> => {
   await putFile(file);
   return file;
 };
+
+/**
+ * Remove an account at a given index and save it
+ */
+export const removeAccount = async (index: number): Promise<File> => {
+  const file = await getFile();
+  file.accounts.splice(index, 1);
+  await putFile(file);
+  return file;
+};

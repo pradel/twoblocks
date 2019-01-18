@@ -93,7 +93,7 @@ export const Home = () => {
 
         {file && (
           <Grid item xs={12}>
-            <AccountList file={file} />
+            <AccountList file={file} setFile={setFile} />
           </Grid>
         )}
       </Grid>

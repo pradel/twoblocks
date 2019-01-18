@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { File } from '../utils/accounts';
+import { File, removeAccount } from '../utils/accounts';
 import { AccountItem } from './AccountItem';
+import { DeleteAccount } from './DeleteAccount';
 
 const getRemainingSeconds = () => {
   const currentSeconds = new Date().getSeconds();
@@ -11,6 +12,7 @@ const getRemainingSeconds = () => {
 
 interface Props {
   file: File;
+  setFile: (file: File) => void;
 }
 
 export const AccountList = (props: Props) => {
@@ -32,7 +34,13 @@ export const AccountList = (props: Props) => {
   return (
     <React.Fragment>
       {props.file.accounts.map((account, index) => (
-        <AccountItem key={index} account={account} remainingSeconds={seconds} />
+        <AccountItem
+          key={index}
+          index={index}
+          account={account}
+          remainingSeconds={seconds}
+          setFile={props.setFile}
+        />
       ))}
     </React.Fragment>
   );
