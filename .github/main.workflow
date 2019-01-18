@@ -9,7 +9,7 @@ action "Install" {
 }
 
 action "Build" {
-  uses = "yarn"
+  uses = "nuxt/actions-yarn@node-11"
   needs = ["Install"]
   args = "build"
 }
