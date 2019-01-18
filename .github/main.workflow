@@ -4,7 +4,7 @@ workflow "Build and test" {
 }
 
 action "Install" {
-  uses = "yarn"
+  uses = "nuxt/actions-yarn@node-11"
   args = "install"
 }
 
