@@ -56,14 +56,16 @@ export const AccountItem = (props: Props) => {
     setDeleteModalOpen(true);
   };
 
+  let code = speakeasy.totp({ secret: props.account.secret });
+  // Insert a space in the middle of the code for better readability
+  code = [code.slice(0, 3), ' ', code.slice(3)].join('');
+
   return (
     <React.Fragment>
       <Paper elevation={1} className={classes.container}>
         <div className={classes.flex}>
           <Typography variant="caption">{props.account.name}</Typography>
-          <Typography variant="headline">
-            {speakeasy.totp({ secret: props.account.secret })}
-          </Typography>
+          <Typography variant="headline">{code}</Typography>
         </div>
         <div className={classes.timer}>
           <IconButton

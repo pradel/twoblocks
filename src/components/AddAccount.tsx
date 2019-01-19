@@ -51,6 +51,14 @@ export const AddAccount = (props: Props) => {
     secret: false,
   });
 
+  const reset = () => {
+    setValues({
+      name: '',
+      secret: '',
+    });
+    setErrors({ name: false, secret: false });
+  };
+
   const handleChange = (name: string) => (event: any) => {
     setValues({ ...values, [name]: event.target.value });
   };
@@ -71,10 +79,7 @@ export const AddAccount = (props: Props) => {
       // TODO try catch
       const file = await addAccount(values);
 
-      setValues({
-        name: '',
-        secret: '',
-      });
+      reset();
       props.setFile(file);
       props.onClose();
       // TODO success snackbar
