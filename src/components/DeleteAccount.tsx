@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Dialog,
   DialogTitle,
@@ -6,9 +6,11 @@ import {
   DialogContentText,
   DialogActions,
   Button,
+  Typography,
 } from '@material-ui/core';
 import { removeAccount, File } from '../utils/accounts';
 import { Account } from '../types';
+import { Loader } from './Loader';
 
 interface Props {
   open: boolean;
@@ -25,21 +27,34 @@ export const DeleteAccount = ({
   account,
   accountIndex,
 }: Props) => {
+  const [loading, setLoading] = useState(false);
+
+  const reset = () => {
+    setLoading(false);
+  };
+
   const handleDelete = async () => {
-    // TODO try catch
-    // TODO loading during account deletion
-    const file = await removeAccount(accountIndex);
-    onClose();
-    setFile(file);
-    // TODO success snackbar
+    try {
+      setLoading(true);
+      const file = await removeAccount(accountIndex);
+      onClose();
+      reset();
+      setFile(file);
+    } catch (error) {
+      setLoading(false);
+      alert(error.message);
+    }
   };
 
   return (
     <Dialog open={open} onClose={onClose}>
       <DialogTitle>Delete {account.name}?</DialogTitle>
-      <DialogContent>
-        <DialogContentText>TODO text</DialogContentText>
-      </DialogContent>
+      {loading && <Loader />}
+      {!loading && (
+        <DialogContent>
+          <DialogContentText>TODO text</DialogContentText>
+        </DialogContent>
+      )}
       <DialogActions>
         <Button onClick={onClose} color="primary">
           Cancel
