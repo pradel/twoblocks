@@ -32,6 +32,7 @@ const useStyles = makeStyles(theme => ({
   loadingContainer: {
     display: 'flex',
     justifyContent: 'center',
+    marginTop: theme.spacing.unit * 2,
   },
 }));
 
