@@ -60,7 +60,7 @@ export const AccountItem = (props: Props) => {
     <React.Fragment>
       <Paper elevation={1} className={classes.container}>
         <div className={classes.flex}>
-          <Typography>{props.account.name}</Typography>
+          <Typography variant="caption">{props.account.name}</Typography>
           <Typography variant="headline">
             {speakeasy.totp({ secret: props.account.secret })}
           </Typography>
