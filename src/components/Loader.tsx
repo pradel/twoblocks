@@ -11,12 +11,16 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export const Loader = () => {
+interface Props {
+  className?: string;
+}
+
+export const Loader = ({ className }: Props) => {
   const classes = useStyles();
 
   return (
     <Grid container>
-      <Grid item xs={12} className={classes.container}>
+      <Grid item xs={12} className={`${classes.container} ${className}`}>
         <CircularProgress />
       </Grid>
     </Grid>

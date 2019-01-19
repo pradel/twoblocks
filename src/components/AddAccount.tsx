@@ -14,10 +14,14 @@ import { SlideProps } from '@material-ui/core/Slide';
 import { ArrowBack } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/styles';
 import { addAccount, File } from '../utils/accounts';
+import { Loader } from './Loader';
 
 const useStyles = makeStyles(theme => ({
   flex: {
     flex: 1,
+  },
+  loadingContainer: {
+    marginTop: 56 + theme.spacing.unit * 2,
   },
   container: {
     marginTop: 56,
@@ -50,6 +54,7 @@ export const AddAccount = (props: Props) => {
     name: false,
     secret: false,
   });
+  const [loading, setLoading] = useState(false);
 
   const reset = () => {
     setValues({
@@ -57,6 +62,7 @@ export const AddAccount = (props: Props) => {
       secret: '',
     });
     setErrors({ name: false, secret: false });
+    setLoading(false);
   };
 
   const handleChange = (name: string) => (event: any) => {
@@ -75,15 +81,14 @@ export const AddAccount = (props: Props) => {
       return;
     }
     try {
-      // TODO loading while adding the account
-      // TODO try catch
+      setLoading(true);
       const file = await addAccount(values);
 
       reset();
       props.setFile(file);
       props.onClose();
-      // TODO success snackbar
     } catch (error) {
+      setLoading(false);
       alert(error.message);
     }
   };
@@ -113,29 +118,37 @@ export const AddAccount = (props: Props) => {
         </Toolbar>
       </AppBar>
 
-      <Grid container spacing={24} className={classes.container}>
-        <Grid item xs={12}>
-          <form className={classes.formContainer} noValidate autoComplete="off">
-            <TextField
-              id="name"
-              label="Account name"
-              value={values.name}
-              onChange={handleChange('name')}
-              margin="normal"
-              error={errors.name}
-            />
+      {loading && <Loader className={classes.loadingContainer} />}
 
-            <TextField
-              id="secret"
-              label="Key"
-              value={values.secret}
-              onChange={handleChange('secret')}
-              margin="normal"
-              error={errors.secret}
-            />
-          </form>
+      {!loading && (
+        <Grid container spacing={24} className={classes.container}>
+          <Grid item xs={12}>
+            <form
+              className={classes.formContainer}
+              noValidate
+              autoComplete="off"
+            >
+              <TextField
+                id="name"
+                label="Account name"
+                value={values.name}
+                onChange={handleChange('name')}
+                margin="normal"
+                error={errors.name}
+              />
+
+              <TextField
+                id="secret"
+                label="Key"
+                value={values.secret}
+                onChange={handleChange('secret')}
+                margin="normal"
+                error={errors.secret}
+              />
+            </form>
+          </Grid>
         </Grid>
-      </Grid>
+      )}
     </Dialog>
   );
 };
