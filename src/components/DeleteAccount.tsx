@@ -6,7 +6,6 @@ import {
   DialogContentText,
   DialogActions,
   Button,
-  Typography,
 } from '@material-ui/core';
 import { removeAccount, File } from '../utils/accounts';
 import { Account } from '../types';
@@ -52,7 +51,9 @@ export const DeleteAccount = ({
       {loading && <Loader />}
       {!loading && (
         <DialogContent>
-          <DialogContentText>TODO text</DialogContentText>
+          <DialogContentText>
+            Do you really want to delete {account.name}?
+          </DialogContentText>
         </DialogContent>
       )}
       <DialogActions>
