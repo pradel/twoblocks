@@ -45,11 +45,13 @@ export const Home = () => {
 
   useEffect(
     () => {
-      getFile().then(file => {
-        console.log(file);
-        setFile(file);
-      });
-      // TODO catch error
+      getFile()
+        .then(file => {
+          setFile(file);
+        })
+        .catch(error => {
+          alert(error.message);
+        });
     },
     [false]
   );
