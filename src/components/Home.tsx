@@ -40,7 +40,7 @@ export const Home = () => {
   const classes = useStyles();
   const [file, setFile] = useState<null | File>(null);
   const [speedDialOpen, setSpeedDialOpen] = useState(false);
-  const [modalOpen, setModalOpen] = useState(false);
+  const [addAccountModalOpen, setAddAccountModalOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
   const menuOpen = Boolean(anchorEl);
 
@@ -58,7 +58,7 @@ export const Home = () => {
 
   const handleSelectManual = () => {
     handleSpeedDialClose();
-    setModalOpen(true);
+    setAddAccountModalOpen(true);
   };
 
   useEffect(() => {
@@ -117,8 +117,8 @@ export const Home = () => {
       </Grid>
 
       <AddAccount
-        open={modalOpen}
-        onClose={() => setModalOpen(false)}
+        open={addAccountModalOpen}
+        onClose={() => setAddAccountModalOpen(false)}
         setFile={setFile}
       />
 
@@ -134,11 +134,13 @@ export const Home = () => {
           <SpeedDialAction
             icon={<PhotoCamera />}
             tooltipTitle="Scan a barcode"
+            tooltipOpen
             onClick={handleSelectCamera}
           />
           <SpeedDialAction
             icon={<Keyboard />}
             tooltipTitle="Enter manually"
+            tooltipOpen
             onClick={handleSelectManual}
           />
         </SpeedDial>
