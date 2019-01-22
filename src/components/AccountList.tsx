@@ -18,18 +18,15 @@ interface Props {
 export const AccountList = (props: Props) => {
   const [seconds, setSeconds] = useState(0);
 
-  useEffect(
-    () => {
-      const intervalId = setInterval(() => {
-        setSeconds(getRemainingSeconds());
-      }, 1000);
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setSeconds(getRemainingSeconds());
+    }, 1000);
 
-      return function cleanup() {
-        clearInterval(intervalId);
-      };
-    },
-    [false]
-  );
+    return function cleanup() {
+      clearInterval(intervalId);
+    };
+  }, [false]);
 
   return (
     <React.Fragment>

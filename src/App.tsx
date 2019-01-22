@@ -17,23 +17,20 @@ const App = () => {
   const [loggedIn, setLoggedIn] = useState(!!blockstack.isUserSignedIn());
   const [loggingIn, setLoggingIn] = useState(!!blockstack.isSignInPending());
 
-  useEffect(
-    () => {
-      if (blockstack.isSignInPending()) {
-        blockstack
-          .handlePendingSignIn()
-          .then(() => {
-            setLoggingIn(false);
-            setLoggedIn(true);
-          })
-          .catch((error: any) => {
-            setLoggingIn(false);
-            alert(error.message);
-          });
-      }
-    },
-    [false]
-  );
+  useEffect(() => {
+    if (blockstack.isSignInPending()) {
+      blockstack
+        .handlePendingSignIn()
+        .then(() => {
+          setLoggingIn(false);
+          setLoggedIn(true);
+        })
+        .catch((error: any) => {
+          setLoggingIn(false);
+          alert(error.message);
+        });
+    }
+  }, [false]);
 
   return (
     <ThemeProvider theme={theme}>

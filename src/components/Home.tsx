@@ -43,18 +43,15 @@ export const Home = () => {
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
   const menuOpen = Boolean(anchorEl);
 
-  useEffect(
-    () => {
-      getFile()
-        .then(file => {
-          setFile(file);
-        })
-        .catch(error => {
-          alert(error.message);
-        });
-    },
-    [false]
-  );
+  useEffect(() => {
+    getFile()
+      .then(file => {
+        setFile(file);
+      })
+      .catch(error => {
+        alert(error.message);
+      });
+  }, [false]);
 
   return (
     <React.Fragment>
