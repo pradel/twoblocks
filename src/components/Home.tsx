@@ -3,15 +3,15 @@ import {
   AppBar,
   Toolbar,
   Typography,
-  Fab,
   CircularProgress,
   Grid,
   IconButton,
   Menu,
   MenuItem,
 } from '@material-ui/core';
+import { SpeedDial, SpeedDialAction, SpeedDialIcon } from '@material-ui/lab';
 import { makeStyles } from '@material-ui/styles';
-import { Add, MoreVert } from '@material-ui/icons';
+import { MoreVert, Keyboard, PhotoCamera } from '@material-ui/icons';
 import * as blockstack from 'blockstack';
 import { getFile, File } from '../utils/accounts';
 import { AccountList } from './AccountList';
@@ -39,9 +39,27 @@ const useStyles = makeStyles(theme => ({
 export const Home = () => {
   const classes = useStyles();
   const [file, setFile] = useState<null | File>(null);
+  const [speedDialOpen, setSpeedDialOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
   const menuOpen = Boolean(anchorEl);
+
+  const handleSpeedDialClick = () => {
+    setSpeedDialOpen(!speedDialOpen);
+  };
+
+  const handleSpeedDialClose = () => {
+    setSpeedDialOpen(false);
+  };
+
+  const handleSelectCamera = () => {
+    handleSpeedDialClose();
+  };
+
+  const handleSelectManual = () => {
+    handleSpeedDialClose();
+    setModalOpen(true);
+  };
 
   useEffect(() => {
     getFile()
@@ -105,13 +123,25 @@ export const Home = () => {
       />
 
       {file && (
-        <Fab
+        <SpeedDial
+          ariaLabel="Actions"
           className={classes.fab}
-          onClick={() => setModalOpen(true)}
-          color="primary"
+          icon={<SpeedDialIcon />}
+          open={speedDialOpen}
+          onClick={handleSpeedDialClick}
+          onClose={handleSpeedDialClose}
         >
-          <Add />
-        </Fab>
+          <SpeedDialAction
+            icon={<PhotoCamera />}
+            tooltipTitle="Scan a barcode"
+            onClick={handleSelectCamera}
+          />
+          <SpeedDialAction
+            icon={<Keyboard />}
+            tooltipTitle="Enter manually"
+            onClick={handleSelectManual}
+          />
+        </SpeedDial>
       )}
     </React.Fragment>
   );
