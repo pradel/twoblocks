@@ -16,6 +16,7 @@ import * as blockstack from 'blockstack';
 import { getFile, File } from '../utils/accounts';
 import { AccountList } from './AccountList';
 import { AddAccount } from './AddAccount';
+import { AddAccountScan } from './AddAccountScan';
 
 const useStyles = makeStyles(theme => ({
   flex: {
@@ -40,6 +41,7 @@ export const Home = () => {
   const classes = useStyles();
   const [file, setFile] = useState<null | File>(null);
   const [speedDialOpen, setSpeedDialOpen] = useState(false);
+  const [addAccountScanOpen, setAddAccountScanOpen] = useState(false);
   const [addAccountModalOpen, setAddAccountModalOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
   const menuOpen = Boolean(anchorEl);
@@ -54,6 +56,7 @@ export const Home = () => {
 
   const handleSelectCamera = () => {
     handleSpeedDialClose();
+    setAddAccountScanOpen(true);
   };
 
   const handleSelectManual = () => {
@@ -119,6 +122,12 @@ export const Home = () => {
       <AddAccount
         open={addAccountModalOpen}
         onClose={() => setAddAccountModalOpen(false)}
+        setFile={setFile}
+      />
+
+      <AddAccountScan
+        open={addAccountScanOpen}
+        onClose={() => setAddAccountScanOpen(false)}
         setFile={setFile}
       />
 

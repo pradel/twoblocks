@@ -112,7 +112,7 @@ export const AddAccount = (props: Props) => {
           <Typography variant="h6" color="inherit" className={classes.flex}>
             Enter account details
           </Typography>
-          <Button color="inherit" onClick={handleSubmit}>
+          <Button color="inherit" onClick={handleSubmit} disabled={loading}>
             save
           </Button>
         </Toolbar>

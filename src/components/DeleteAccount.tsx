@@ -57,10 +57,15 @@ export const DeleteAccount = ({
         </DialogContent>
       )}
       <DialogActions>
-        <Button onClick={onClose} color="primary">
+        <Button onClick={onClose} color="primary" disabled={loading}>
           Cancel
         </Button>
-        <Button onClick={handleDelete} color="primary" autoFocus>
+        <Button
+          onClick={handleDelete}
+          color="primary"
+          autoFocus
+          disabled={loading}
+        >
           Delete
         </Button>
       </DialogActions>
