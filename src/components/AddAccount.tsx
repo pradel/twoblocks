@@ -94,12 +94,7 @@ export const AddAccount = (props: Props) => {
   };
 
   return (
-    <Dialog
-      fullScreen
-      open={props.open}
-      onClose={props.onClose}
-      TransitionComponent={Transition}
-    >
+    <Dialog fullScreen open={props.open} TransitionComponent={Transition}>
       <AppBar>
         <Toolbar>
           <IconButton

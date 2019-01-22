@@ -12,7 +12,8 @@ import { SlideProps } from '@material-ui/core/Slide';
 import { ArrowBack } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/styles';
 import QrReader from 'react-qr-reader';
-import { File } from '../utils/accounts';
+import * as queryString from 'query-string';
+import { File, addAccount } from '../utils/accounts';
 import { Loader } from './Loader';
 
 const useStyles = makeStyles(theme => ({
@@ -41,11 +42,33 @@ export const AddAccountScan = (props: Props) => {
   const classes = useStyles();
   const [loading, setLoading] = useState(false);
 
-  const handleScan = (code: string | null) => {
-    if (code) {
+  const handleScan = async (scanned: string | null) => {
+    if (scanned) {
       setLoading(true);
-      alert(code);
-      // TODO save code
+      const parsed = queryString.parseUrl(scanned);
+      // Verify the url is valid
+      if (!parsed.url.startsWith('otpauth://') && !parsed.query.secret) {
+        alert('Invalid code');
+        console.error(parsed);
+        setLoading(false);
+        return;
+      }
+
+      try {
+        const parsedUrl = parsed.url.split('/');
+        const accountName = parsedUrl[parsedUrl.length - 1];
+
+        const file = await addAccount({
+          name: accountName,
+          secret: parsed.query.secret as string,
+        });
+
+        props.setFile(file);
+        props.onClose();
+      } catch (error) {
+        alert(error.message);
+        setLoading(false);
+      }
     }
   };
 
@@ -54,12 +77,7 @@ export const AddAccountScan = (props: Props) => {
   };
 
   return (
-    <Dialog
-      fullScreen
-      open={props.open}
-      onClose={props.onClose}
-      TransitionComponent={Transition}
-    >
+    <Dialog fullScreen open={props.open} TransitionComponent={Transition}>
       <AppBar>
         <Toolbar>
           <IconButton
