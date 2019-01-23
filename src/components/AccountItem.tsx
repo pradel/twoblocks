@@ -82,7 +82,7 @@ export const AccountItem = (props: Props) => {
             open={open}
             onClose={() => setAnchorEl(null)}
           >
-            <MenuItem onClick={() => null}>Edit</MenuItem>
+            {/* <MenuItem onClick={() => null}>Edit</MenuItem> */}
             <MenuItem onClick={handleRequestDelete}>Delete</MenuItem>
           </Menu>
           <Typography>{props.remainingSeconds}</Typography>
