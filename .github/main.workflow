@@ -22,7 +22,7 @@ action "Build" {
 
 action "Test" {
   uses = "docker://node:10"
-  needs = ["Build"]
+  needs = ["Install"]
   args = "yarn test"
   env = {
     CI = "true"
