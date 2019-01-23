@@ -14,8 +14,12 @@ import { DeleteAccount } from './DeleteAccount';
 import { File } from '../utils/accounts';
 
 const useStyles = makeStyles(theme => ({
-  flex: {
+  leftContainer: {
     flex: 1,
+    marginTop: theme.spacing.unit,
+  },
+  name: {
+    marginBottom: theme.spacing.unit,
   },
   container: {
     marginTop: theme.spacing.unit * 2,
@@ -26,6 +30,7 @@ const useStyles = makeStyles(theme => ({
     paddingRight: theme.spacing.unit * 2,
     display: 'flex',
     flexDirection: 'row',
+    backgroundColor: '#ffffff',
   },
   timer: {
     display: 'flex',
@@ -33,8 +38,8 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
   },
   menuIconButton: {
-    paddingTop: theme.spacing.unit / 2,
-    paddingBottom: theme.spacing.unit,
+    // paddingTop: theme.spacing.unit / 2,
+    // paddingBottom: theme.spacing.unit,
   },
 }));
 
@@ -62,10 +67,14 @@ export const AccountItem = (props: Props) => {
 
   return (
     <React.Fragment>
-      <Paper elevation={1} className={classes.container}>
-        <div className={classes.flex}>
-          <Typography variant="caption">{props.account.name}</Typography>
-          <Typography variant="headline">{code}</Typography>
+      <div className={classes.container}>
+        <div className={classes.leftContainer}>
+          <Typography variant="caption" className={classes.name}>
+            {props.account.name}
+          </Typography>
+          <Typography variant="headline" color="primary">
+            {code}
+          </Typography>
         </div>
         <div className={classes.timer}>
           <IconButton
@@ -87,7 +96,7 @@ export const AccountItem = (props: Props) => {
           </Menu>
           <Typography>{props.remainingSeconds}</Typography>
         </div>
-      </Paper>
+      </div>
 
       <DeleteAccount
         open={deleteModalOpen}
