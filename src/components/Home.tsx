@@ -35,6 +35,18 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
     marginTop: theme.spacing.unit * 2,
   },
+  emptyContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    marginTop: theme.spacing.unit * 2,
+    flexDirection: 'column',
+  },
+  emptyImage: {
+    height: 130,
+    maxWidth: '100%',
+    marginTop: theme.spacing.unit * 2,
+    marginBottom: theme.spacing.unit * 2,
+  },
 }));
 
 export const Home = () => {
@@ -109,6 +121,21 @@ export const Home = () => {
         {!file && (
           <Grid item xs={12} className={classes.loadingContainer}>
             <CircularProgress />
+          </Grid>
+        )}
+
+        {file && file.accounts.length === 0 && (
+          <Grid item xs={12} className={classes.emptyContainer}>
+            <img
+              src="/undraw_authentication_fsn5.svg"
+              className={classes.emptyImage}
+            />
+            <Typography gutterBottom align="center">
+              Empty account list
+            </Typography>
+            <Typography variant="caption" align="center">
+              Use the + button to add a new account
+            </Typography>
           </Grid>
         )}
 

@@ -1,11 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Typography,
-  Paper,
-  IconButton,
-  Menu,
-  MenuItem,
-} from '@material-ui/core';
+import { Typography, IconButton, Menu, MenuItem } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { MoreVert } from '@material-ui/icons';
 import * as speakeasy from 'speakeasy';
