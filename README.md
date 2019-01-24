@@ -1,6 +1,17 @@
-# twoblocks
+<h1 align="center">Twoblocks</h1>
 
-Free and open source 2fa manager built with Blockstack
+<p align="center">
+  <img src="https://raw.githubusercontent.com/pradel/twoblocks/master/public/icon-192x192.png" height="50">
+</p>
+
+<p align="center">
+  Free and open source 2fa manager built with Blockstack
+</p>
+
+<p align="center">
+  <img src="https://badgen.net/badge/license/MIT/blue" alt="License">
+  <img src="https://badgen.net/github/status/pradel/twoblocks" alt="Status">
+</p>
 
 ## Setup
 
