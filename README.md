@@ -1,6 +1,6 @@
 # twoblocks
 
-⚠️ WIP ⚠️
+Free and open source 2fa manager built with Blockstack
 
 ## Setup
 
