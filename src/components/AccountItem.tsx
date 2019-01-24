@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Typography, IconButton, Menu, MenuItem } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { MoreVert } from '@material-ui/icons';
-import * as speakeasy from 'speakeasy';
 import { Account } from '../types';
 import { DeleteAccount } from './DeleteAccount';
 import { File } from '../utils/accounts';
@@ -55,7 +54,7 @@ export const AccountItem = (props: Props) => {
     setDeleteModalOpen(true);
   };
 
-  let code = speakeasy.totp({ secret: props.account.secret });
+  let code = otplib.authenticator.generate(props.account.secret);
   // Insert a space in the middle of the code for better readability
   code = [code.slice(0, 3), ' ', code.slice(3)].join('');
 
