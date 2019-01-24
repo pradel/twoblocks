@@ -3,7 +3,7 @@
   "name": "Twoblocks",
   "icons": [
     {
-      "src": "icon-192x192.png",
+      "src": "https://twoblocks.leopradel.com/icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     }
