@@ -3,4 +3,4 @@ https://twoblocks.netlify.com/* https://twoblocks.leopradel.com/:splat 301!
 
 # We allow blockstack to get our manifest.json file
 /manifest.json
-  Access-Control-Allow-Origin: https://browser.blockstack.org
+  Access-Control-Allow-Origin: *
