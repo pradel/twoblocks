@@ -30,6 +30,13 @@ export const Login = () => {
   const classes = useStyles();
   const { height } = useWindowSize();
 
+  const handleLogin = () => {
+    const origin = window.location.origin;
+    blockstack.redirectToSignIn(origin, `${origin}/manifest.json`, [
+      'store_write',
+    ]);
+  };
+
   return (
     <Grid container style={{ height }}>
       <Grid item xs={12} className={classes.container}>
@@ -61,7 +68,7 @@ export const Login = () => {
         <div>
           <Button
             className={classes.loginButton}
-            onClick={() => blockstack.redirectToSignIn()}
+            onClick={handleLogin}
             variant="outlined"
             color="primary"
           >
