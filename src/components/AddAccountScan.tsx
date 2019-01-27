@@ -8,7 +8,6 @@ import {
   Typography,
   Grid,
 } from '@material-ui/core';
-import { SlideProps } from '@material-ui/core/Slide';
 import { ArrowBack } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/styles';
 import QrReader from 'react-qr-reader';
@@ -23,6 +22,11 @@ const useStyles = makeStyles(theme => ({
   loadingContainer: {
     marginTop: 56 + theme.spacing.unit * 2,
   },
+  errorContainer: {
+    marginTop: 56 + theme.spacing.unit * 2,
+    paddingLeft: theme.spacing.unit * 2,
+    paddingRight: theme.spacing.unit * 2,
+  },
   container: {
     marginTop: 56,
   },
@@ -34,13 +38,26 @@ interface Props {
   setFile: (file: File) => void;
 }
 
-function Transition(props: SlideProps) {
+function Transition(props: any) {
   return <Slide direction="up" {...props} />;
 }
 
 export const AddAccountScan = (props: Props) => {
   const classes = useStyles();
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleClose = () => {
+    props.onClose();
+    setLoading(false);
+    setError(null);
+  };
+
+  const handleError = (error: any) => {
+    console.error(error);
+    setError(error.message);
+    setLoading(false);
+  };
 
   const handleScan = async (scanned: string | null) => {
     if (scanned) {
@@ -66,25 +83,16 @@ export const AddAccountScan = (props: Props) => {
         props.setFile(file);
         props.onClose();
       } catch (error) {
-        alert(error.message);
-        setLoading(false);
+        handleError(error);
       }
     }
-  };
-
-  const handleError = (error: any) => {
-    alert(error.message);
   };
 
   return (
     <Dialog fullScreen open={props.open} TransitionComponent={Transition}>
       <AppBar>
         <Toolbar>
-          <IconButton
-            color="inherit"
-            onClick={props.onClose}
-            aria-label="Close"
-          >
+          <IconButton color="inherit" onClick={handleClose} aria-label="Close">
             <ArrowBack />
           </IconButton>
           <Typography variant="h6" color="inherit" className={classes.flex}>
@@ -95,7 +103,21 @@ export const AddAccountScan = (props: Props) => {
 
       {loading && <Loader className={classes.loadingContainer} />}
 
-      {!loading && (
+      {!loading && error && (
+        <Grid container className={classes.errorContainer}>
+          <Grid item xs={12}>
+            <Typography gutterBottom>Error: {error}</Typography>
+            <Typography>Known issues:</Typography>
+            <Typography>
+              - On IOS 11 it is only supported on Safari and not on Chrome or
+              Firefox due to Apple making the API not available to 3rd party
+              browsers.
+            </Typography>
+          </Grid>
+        </Grid>
+      )}
+
+      {!loading && !error && (
         <Grid container className={classes.container}>
           <Grid item xs={12}>
             <QrReader

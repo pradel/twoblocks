@@ -10,7 +10,6 @@ import {
   Button,
   TextField,
 } from '@material-ui/core';
-import { SlideProps } from '@material-ui/core/Slide';
 import { ArrowBack } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/styles';
 import { addAccount, File } from '../utils/accounts';
@@ -40,7 +39,7 @@ interface Props {
   setFile: (file: File) => void;
 }
 
-function Transition(props: SlideProps) {
+function Transition(props: any) {
   return <Slide direction="up" {...props} />;
 }
 
