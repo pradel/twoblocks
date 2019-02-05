@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import {
   AppBar,
   Toolbar,
@@ -17,6 +17,7 @@ import { getFile, File } from '../utils/accounts';
 import { AccountList } from './AccountList';
 import { AddAccount } from './AddAccount';
 import { AddAccountScan } from './AddAccountScan';
+import { ThemeContext } from '../utils/themeContext';
 
 const useStyles = makeStyles(theme => ({
   flex: {
@@ -49,7 +50,11 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export const Home = () => {
+interface Props {
+  setTheme: (theme: 'light' | 'dark') => void;
+}
+
+export const Home = ({ setTheme }: Props) => {
   const classes = useStyles();
   const [file, setFile] = useState<null | File>(null);
   const [speedDialOpen, setSpeedDialOpen] = useState(false);
@@ -57,6 +62,8 @@ export const Home = () => {
   const [addAccountModalOpen, setAddAccountModalOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
   const menuOpen = Boolean(anchorEl);
+
+  const theme = useContext(ThemeContext);
 
   const handleSpeedDialClick = () => {
     setSpeedDialOpen(!speedDialOpen);
@@ -108,6 +115,12 @@ export const Home = () => {
             open={menuOpen}
             onClose={() => setAnchorEl(null)}
           >
+            {theme === 'dark' && (
+              <MenuItem onClick={() => setTheme('light')}>Light theme</MenuItem>
+            )}
+            {theme === 'light' && (
+              <MenuItem onClick={() => setTheme('dark')}>Dark theme</MenuItem>
+            )}
             <MenuItem
               onClick={() => blockstack.signUserOut(window.location.origin)}
             >

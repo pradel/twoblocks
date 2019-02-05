@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { ThemeProvider } from '@material-ui/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
@@ -6,16 +6,25 @@ import * as blockstack from 'blockstack';
 import { Login } from './components/Login';
 import { Home } from './components/Home';
 import { Loader } from './components/Loader';
-
-const theme = createMuiTheme({
-  typography: {
-    useNextVariants: true,
-  },
-});
+import { ThemeContext } from './utils/themeContext';
 
 const App = () => {
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
   const [loggedIn, setLoggedIn] = useState(!!blockstack.isUserSignedIn());
   const [loggingIn, setLoggingIn] = useState(!!blockstack.isSignInPending());
+
+  const muiTheme = useMemo(
+    () =>
+      createMuiTheme({
+        palette: {
+          type: theme,
+        },
+        typography: {
+          useNextVariants: true,
+        },
+      }),
+    [theme]
+  );
 
   useEffect(() => {
     if (blockstack.isSignInPending()) {
@@ -33,11 +42,13 @@ const App = () => {
   }, [false]);
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      {!loggingIn && !loggedIn && <Login />}
-      {!loggingIn && loggedIn && <Home />}
-      {loggingIn && <Loader />}
+    <ThemeProvider theme={muiTheme}>
+      <ThemeContext.Provider value={theme}>
+        <CssBaseline />
+        {!loggingIn && !loggedIn && <Login />}
+        {!loggingIn && loggedIn && <Home setTheme={setTheme} />}
+        {loggingIn && <Loader />}
+      </ThemeContext.Provider>
     </ThemeProvider>
   );
 };
