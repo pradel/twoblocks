@@ -14,8 +14,7 @@
 </p>
 
 <p align="center">
-  <img src="./public/img/screenshot-login.png" alt="Screenshot login" style="max-width: 200px; margin-right: 20px;">
-  <img src="./public/img/screenshot-app.png" alt="Screenshot app" style="max-width: 200px;">
+  <img src="./public/img/twoblocks-app.png" alt="App">
 </p>
 
 ## 🚀 Features
