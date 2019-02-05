@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import {
   AppBar,
   Toolbar,
@@ -17,6 +17,7 @@ import { getFile, File } from '../utils/accounts';
 import { AccountList } from './AccountList';
 import { AddAccount } from './AddAccount';
 import { AddAccountScan } from './AddAccountScan';
+import { ThemeContext } from '../utils/theme';
 
 const useStyles = makeStyles(theme => ({
   flex: {
@@ -49,7 +50,11 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export const Home = () => {
+interface Props {
+  setTheme: (theme: 'light' | 'dark') => void;
+}
+
+export const Home = ({ setTheme }: Props) => {
   const classes = useStyles();
   const [file, setFile] = useState<null | File>(null);
   const [speedDialOpen, setSpeedDialOpen] = useState(false);
@@ -57,6 +62,8 @@ export const Home = () => {
   const [addAccountModalOpen, setAddAccountModalOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
   const menuOpen = Boolean(anchorEl);
+
+  const theme = useContext(ThemeContext);
 
   const handleSpeedDialClick = () => {
     setSpeedDialOpen(!speedDialOpen);
@@ -74,6 +81,20 @@ export const Home = () => {
   const handleSelectManual = () => {
     handleSpeedDialClose();
     setAddAccountModalOpen(true);
+  };
+
+  const handleSelectLightTheme = () => {
+    setTheme('light');
+    setAnchorEl(null);
+  };
+
+  const handleSelectDarkTheme = () => {
+    setTheme('dark');
+    setAnchorEl(null);
+  };
+
+  const handleLogout = () => {
+    blockstack.signUserOut(window.location.origin);
   };
 
   useEffect(() => {
@@ -108,11 +129,13 @@ export const Home = () => {
             open={menuOpen}
             onClose={() => setAnchorEl(null)}
           >
-            <MenuItem
-              onClick={() => blockstack.signUserOut(window.location.origin)}
-            >
-              Logout
-            </MenuItem>
+            {theme === 'dark' && (
+              <MenuItem onClick={handleSelectLightTheme}>Light theme</MenuItem>
+            )}
+            {theme === 'light' && (
+              <MenuItem onClick={handleSelectDarkTheme}>Dark theme</MenuItem>
+            )}
+            <MenuItem onClick={handleLogout}>Logout</MenuItem>
           </Menu>
         </Toolbar>
       </AppBar>

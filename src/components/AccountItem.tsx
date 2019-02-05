@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Typography, IconButton, Menu, MenuItem } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { MoreVert } from '@material-ui/icons';
 import { Account } from '../types';
 import { DeleteAccount } from './DeleteAccount';
 import { File } from '../utils/accounts';
+import { ThemeContext } from '../utils/theme';
 
 const useStyles = makeStyles(theme => ({
   leftContainer: {
@@ -23,16 +24,12 @@ const useStyles = makeStyles(theme => ({
     paddingRight: theme.spacing.unit * 2,
     display: 'flex',
     flexDirection: 'row',
-    backgroundColor: '#ffffff',
+    backgroundColor: theme.palette.background.paper,
   },
   timer: {
     display: 'flex',
     alignItems: 'center',
     flexDirection: 'column',
-  },
-  menuIconButton: {
-    // paddingTop: theme.spacing.unit / 2,
-    // paddingBottom: theme.spacing.unit,
   },
 }));
 
@@ -48,6 +45,7 @@ export const AccountItem = (props: Props) => {
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
   const open = Boolean(anchorEl);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
+  const theme = useContext(ThemeContext);
 
   const handleRequestDelete = () => {
     setAnchorEl(null);
@@ -70,7 +68,10 @@ export const AccountItem = (props: Props) => {
           <Typography variant="caption" className={classes.name}>
             {props.account.name}
           </Typography>
-          <Typography variant="headline" color="primary">
+          <Typography
+            variant="h5"
+            color={theme === 'light' ? 'primary' : 'default'}
+          >
             {code}
           </Typography>
         </div>
@@ -79,7 +80,6 @@ export const AccountItem = (props: Props) => {
             aria-owns={anchorEl ? 'account-menu' : undefined}
             aria-haspopup="true"
             onClick={event => setAnchorEl(event.currentTarget)}
-            className={classes.menuIconButton}
           >
             <MoreVert fontSize="small" />
           </IconButton>

@@ -22,6 +22,7 @@
 - Codes are synced between devices
 - Use your phone / laptop camera to scan a qrcode
 - Add an account manually
+- Dark theme
 - Data stored on the storage of your choice using Blockstack
 
 ## 📚 Setup

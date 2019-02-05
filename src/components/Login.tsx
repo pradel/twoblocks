@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Typography, Grid, Link } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { useWindowSize } from 'the-platform';
 import * as blockstack from 'blockstack';
+import { ThemeContext } from '../utils/theme';
 
 const LinkAny: any = Link;
 
@@ -29,6 +30,7 @@ const useStyles = makeStyles(theme => ({
 export const Login = () => {
   const classes = useStyles();
   const { height } = useWindowSize();
+  const theme = useContext(ThemeContext);
 
   const handleLogin = () => {
     const origin = window.location.origin;
@@ -50,6 +52,7 @@ export const Login = () => {
             href="https://github.com/pradel/twoblocks"
             target="_blank"
             rel="noopener noreferrer"
+            color={theme === 'light' ? 'primary' : 'inherit'}
           >
             open source
           </LinkAny>{' '}
@@ -60,6 +63,7 @@ export const Login = () => {
             href="https://blockstack.org"
             target="_blank"
             rel="noopener noreferrer"
+            color={theme === 'light' ? 'primary' : 'inherit'}
           >
             Blockstack
           </LinkAny>
@@ -70,7 +74,7 @@ export const Login = () => {
             className={classes.loginButton}
             onClick={handleLogin}
             variant="outlined"
-            color="primary"
+            color={theme === 'light' ? 'primary' : 'default'}
           >
             Get started
           </Button>
