@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <img src="./public/img/twoblocks-app.png" alt="App">
+  <img src="./public/img/twoblocks-app.png" alt="App" width="500">
 </p>
 
 ## 🚀 Features
