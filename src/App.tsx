@@ -6,10 +6,13 @@ import * as blockstack from 'blockstack';
 import { Login } from './components/Login';
 import { Home } from './components/Home';
 import { Loader } from './components/Loader';
-import { ThemeContext } from './utils/themeContext';
+import { ThemeContext, themeStorageKey } from './utils/theme';
 
 const App = () => {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const localTheme = localStorage.getItem('theme');
+  const [theme, setTheme] = useState<'light' | 'dark'>(
+    localTheme === 'dark' ? 'dark' : 'light'
+  );
   const [loggedIn, setLoggedIn] = useState(!!blockstack.isUserSignedIn());
   const [loggingIn, setLoggingIn] = useState(!!blockstack.isSignInPending());
 
@@ -25,6 +28,11 @@ const App = () => {
       }),
     [theme]
   );
+
+  const handleChangeTheme = (data: 'light' | 'dark') => {
+    setTheme(data);
+    localStorage.setItem(themeStorageKey, data);
+  };
 
   useEffect(() => {
     if (blockstack.isSignInPending()) {
@@ -46,7 +54,7 @@ const App = () => {
       <ThemeContext.Provider value={theme}>
         <CssBaseline />
         {!loggingIn && !loggedIn && <Login />}
-        {!loggingIn && loggedIn && <Home setTheme={setTheme} />}
+        {!loggingIn && loggedIn && <Home setTheme={handleChangeTheme} />}
         {loggingIn && <Loader />}
       </ThemeContext.Provider>
     </ThemeProvider>

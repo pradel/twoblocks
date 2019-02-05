@@ -17,7 +17,7 @@ import { getFile, File } from '../utils/accounts';
 import { AccountList } from './AccountList';
 import { AddAccount } from './AddAccount';
 import { AddAccountScan } from './AddAccountScan';
-import { ThemeContext } from '../utils/themeContext';
+import { ThemeContext } from '../utils/theme';
 
 const useStyles = makeStyles(theme => ({
   flex: {
@@ -83,6 +83,20 @@ export const Home = ({ setTheme }: Props) => {
     setAddAccountModalOpen(true);
   };
 
+  const handleSelectLightTheme = () => {
+    setTheme('light');
+    setAnchorEl(null);
+  };
+
+  const handleSelectDarkTheme = () => {
+    setTheme('dark');
+    setAnchorEl(null);
+  };
+
+  const handleLogout = () => {
+    blockstack.signUserOut(window.location.origin);
+  };
+
   useEffect(() => {
     getFile()
       .then(file => {
@@ -116,16 +130,12 @@ export const Home = ({ setTheme }: Props) => {
             onClose={() => setAnchorEl(null)}
           >
             {theme === 'dark' && (
-              <MenuItem onClick={() => setTheme('light')}>Light theme</MenuItem>
+              <MenuItem onClick={handleSelectLightTheme}>Light theme</MenuItem>
             )}
             {theme === 'light' && (
-              <MenuItem onClick={() => setTheme('dark')}>Dark theme</MenuItem>
+              <MenuItem onClick={handleSelectDarkTheme}>Dark theme</MenuItem>
             )}
-            <MenuItem
-              onClick={() => blockstack.signUserOut(window.location.origin)}
-            >
-              Logout
-            </MenuItem>
+            <MenuItem onClick={handleLogout}>Logout</MenuItem>
           </Menu>
         </Toolbar>
       </AppBar>

@@ -5,7 +5,7 @@ import { MoreVert } from '@material-ui/icons';
 import { Account } from '../types';
 import { DeleteAccount } from './DeleteAccount';
 import { File } from '../utils/accounts';
-import { ThemeContext } from '../utils/themeContext';
+import { ThemeContext } from '../utils/theme';
 
 const useStyles = makeStyles(theme => ({
   leftContainer: {
