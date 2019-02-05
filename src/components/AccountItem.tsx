@@ -54,9 +54,14 @@ export const AccountItem = (props: Props) => {
     setDeleteModalOpen(true);
   };
 
-  let code = otplib.authenticator.generate(props.account.secret);
-  // Insert a space in the middle of the code for better readability
-  code = [code.slice(0, 3), ' ', code.slice(3)].join('');
+  let code;
+  try {
+    code = otplib.authenticator.generate(props.account.secret);
+    // Insert a space in the middle of the code for better readability
+    code = [code.slice(0, 3), ' ', code.slice(3)].join('');
+  } catch (error) {
+    code = error.message;
+  }
 
   return (
     <React.Fragment>
