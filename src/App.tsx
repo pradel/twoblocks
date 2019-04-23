@@ -47,7 +47,7 @@ const App = () => {
           alert(error.message);
         });
     }
-  }, [false]);
+  }, []);
 
   return (
     <ThemeProvider theme={muiTheme}>

@@ -44,7 +44,11 @@ export const Login = () => {
       <Grid item xs={12} className={classes.container}>
         <Typography variant="h6">Twoblocks</Typography>
 
-        <img src="/undraw_authentication_fsn5.svg" className={classes.image} />
+        <img
+          src="/undraw_authentication_fsn5.svg"
+          alt="authentication illustration"
+          className={classes.image}
+        />
 
         <Typography variant="body1">
           Free and{' '}

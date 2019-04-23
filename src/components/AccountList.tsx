@@ -12,13 +12,13 @@ export const AccountList = (props: Props) => {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setSeconds(otplib.authenticator.timeRemaining());
+      setSeconds(otplib.authenticator.timeRemaining()); // eslint-disable-line
     }, 1000);
 
     return function cleanup() {
       clearInterval(intervalId);
     };
-  }, [false]);
+  }, []);
 
   return (
     <React.Fragment>

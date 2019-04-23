@@ -105,7 +105,7 @@ export const Home = ({ setTheme }: Props) => {
       .catch(error => {
         alert(error.message);
       });
-  }, [false]);
+  }, []);
 
   return (
     <React.Fragment>
@@ -151,6 +151,7 @@ export const Home = ({ setTheme }: Props) => {
           <Grid item xs={12} className={classes.emptyContainer}>
             <img
               src="/undraw_authentication_fsn5.svg"
+              alt="authentication illustration"
               className={classes.emptyImage}
             />
             <Typography gutterBottom align="center">
