@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 import { Button, Typography, Grid, Link } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { useWindowSize } from 'the-platform';
-import * as blockstack from 'blockstack';
 import { ThemeContext } from '../utils/theme';
+import { userSession } from '../utils/blockstack';
 
 const LinkAny: any = Link;
 
@@ -33,10 +33,7 @@ export const Login = () => {
   const theme = useContext(ThemeContext);
 
   const handleLogin = () => {
-    const origin = window.location.origin;
-    blockstack.redirectToSignIn(origin, `${origin}/manifest.json`, [
-      'store_write',
-    ]);
+    userSession.redirectToSignIn();
   };
 
   return (

@@ -1,5 +1,5 @@
-import * as blockstack from 'blockstack';
 import { Account } from '../types';
+import { userSession } from './blockstack';
 
 const fileName = '2fa.json';
 
@@ -12,7 +12,7 @@ export interface File {
  * Initialize the file if some values are missing
  */
 export const getFile = async (): Promise<File> => {
-  let file = await blockstack.getFile(fileName);
+  let file = await userSession.getFile(fileName);
   if (file) {
     file = JSON.parse(file);
   }
@@ -29,7 +29,7 @@ export const getFile = async (): Promise<File> => {
  * Save the file on the storage
  */
 export const putFile = async (file: File): Promise<void> => {
-  await blockstack.putFile(fileName, JSON.stringify(file));
+  await userSession.putFile(fileName, JSON.stringify(file));
 };
 
 /**

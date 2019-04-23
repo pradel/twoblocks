@@ -12,12 +12,12 @@ import {
 import { SpeedDial, SpeedDialAction, SpeedDialIcon } from '@material-ui/lab';
 import { makeStyles } from '@material-ui/styles';
 import { MoreVert, Keyboard, PhotoCamera } from '@material-ui/icons';
-import * as blockstack from 'blockstack';
 import { getFile, File } from '../utils/accounts';
 import { AccountList } from './AccountList';
 import { AddAccount } from './AddAccount';
 import { AddAccountScan } from './AddAccountScan';
 import { ThemeContext } from '../utils/theme';
+import { userSession } from '../utils/blockstack';
 
 const useStyles = makeStyles(theme => ({
   flex: {
@@ -94,7 +94,7 @@ export const Home = ({ setTheme }: Props) => {
   };
 
   const handleLogout = () => {
-    blockstack.signUserOut(window.location.origin);
+    userSession.signUserOut(window.location.origin);
   };
 
   useEffect(() => {
