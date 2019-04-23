@@ -2,19 +2,19 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { ThemeProvider } from '@material-ui/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
-import * as blockstack from 'blockstack';
 import { Login } from './components/Login';
 import { Home } from './components/Home';
 import { Loader } from './components/Loader';
 import { ThemeContext, themeStorageKey } from './utils/theme';
+import { userSession } from './utils/blockstack';
 
 const App = () => {
   const localTheme = localStorage.getItem('theme');
   const [theme, setTheme] = useState<'light' | 'dark'>(
     localTheme === 'dark' ? 'dark' : 'light'
   );
-  const [loggedIn, setLoggedIn] = useState(!!blockstack.isUserSignedIn());
-  const [loggingIn, setLoggingIn] = useState(!!blockstack.isSignInPending());
+  const [loggedIn, setLoggedIn] = useState(!!userSession.isUserSignedIn());
+  const [loggingIn, setLoggingIn] = useState(!!userSession.isSignInPending());
 
   const muiTheme = useMemo(
     () =>
@@ -35,8 +35,8 @@ const App = () => {
   };
 
   useEffect(() => {
-    if (blockstack.isSignInPending()) {
-      blockstack
+    if (userSession.isSignInPending()) {
+      userSession
         .handlePendingSignIn()
         .then(() => {
           setLoggingIn(false);
@@ -47,7 +47,7 @@ const App = () => {
           alert(error.message);
         });
     }
-  }, [false]);
+  }, []);
 
   return (
     <ThemeProvider theme={muiTheme}>
