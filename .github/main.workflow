@@ -21,7 +21,7 @@ action "Build" {
 }
 
 action "Test" {
-  uses = "ianwalter/puppeteer@v1.0.0"
+  uses = "docker://node:10"
   needs = ["Build"]
   args = "yarn test"
   env = {
