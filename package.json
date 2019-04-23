@@ -5,7 +5,7 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "test": "craco test",
+    "test": "craco test && size-limit",
     "analyze": "ANALYZE=true yarn build",
     "prettier": "prettier --write '**/*.{js,ts,tsx}'"
   },
@@ -33,6 +33,13 @@
     "not ie <= 11",
     "not op_mini all"
   ],
+  "size-limit": [
+    {
+      "path": "build/static/js/*.js",
+      "webpack": false,
+      "limit": "560 KB"
+    }
+  ],
   "dependencies": {
     "@material-ui/core": "3.9.3",
     "@material-ui/icons": "3.0.2",
@@ -59,6 +66,7 @@
     "lint-staged": "8.1.5",
     "prettier": "1.17.0",
     "react-scripts": "3.0.0",
+    "size-limit": "1.1.2",
     "typescript": "3.4.4",
     "webpack-bundle-analyzer": "3.3.2"
   }
