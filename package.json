@@ -5,7 +5,8 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "test": "craco test",
+    "test": "size-limit",
+    "testonly": "craco test",
     "analyze": "ANALYZE=true yarn build",
     "prettier": "prettier --write '**/*.{js,ts,tsx}'"
   },
