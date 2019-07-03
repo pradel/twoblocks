@@ -1,6 +1,6 @@
 workflow "Build and test" {
   on = "push"
-  resolves = ["Build", "Test"]
+  resolves = ["Build"]
 }
 
 action "Install" {
@@ -20,11 +20,11 @@ action "Build" {
   }
 }
 
-action "Test" {
-  uses = "docker://node:10"
-  needs = ["Build"]
-  args = "yarn test"
-  env = {
-    CI = "true"
-  }
-}
+#action "Test" {
+#  uses = "docker://node:10"
+#  needs = ["Build"]
+#  args = "yarn test"
+#  env = {
+#    CI = "true"
+#  }
+#}

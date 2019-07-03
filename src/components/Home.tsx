@@ -8,6 +8,7 @@ import {
   IconButton,
   Menu,
   MenuItem,
+  Theme,
 } from '@material-ui/core';
 import { SpeedDial, SpeedDialAction, SpeedDialIcon } from '@material-ui/lab';
 import { makeStyles } from '@material-ui/styles';
@@ -19,14 +20,14 @@ import { AddAccountScan } from './AddAccountScan';
 import { ThemeContext } from '../utils/theme';
 import { userSession } from '../utils/blockstack';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme: Theme) => ({
   flex: {
     flex: 1,
   },
   fab: {
     position: 'fixed',
-    bottom: theme.spacing.unit * 2,
-    right: theme.spacing.unit * 2,
+    bottom: theme.spacing(2),
+    right: theme.spacing(2),
   },
   container: {
     marginTop: 56,
@@ -34,19 +35,19 @@ const useStyles = makeStyles(theme => ({
   loadingContainer: {
     display: 'flex',
     justifyContent: 'center',
-    marginTop: theme.spacing.unit * 2,
+    marginTop: theme.spacing(2),
   },
   emptyContainer: {
     display: 'flex',
     justifyContent: 'center',
-    marginTop: theme.spacing.unit * 2,
+    marginTop: theme.spacing(2),
     flexDirection: 'column',
   },
   emptyImage: {
     height: 130,
     maxWidth: '100%',
-    marginTop: theme.spacing.unit * 2,
-    marginBottom: theme.spacing.unit * 2,
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(2),
   },
 }));
 

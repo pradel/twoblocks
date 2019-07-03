@@ -7,6 +7,7 @@ import {
   IconButton,
   Typography,
   Grid,
+  Theme,
 } from '@material-ui/core';
 import { ArrowBack } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/styles';
@@ -15,17 +16,17 @@ import * as queryString from 'query-string';
 import { File, addAccount } from '../utils/accounts';
 import { Loader } from './Loader';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme: Theme) => ({
   flex: {
     flex: 1,
   },
   loadingContainer: {
-    marginTop: 56 + theme.spacing.unit * 2,
+    marginTop: 56 + theme.spacing(2),
   },
   errorContainer: {
-    marginTop: 56 + theme.spacing.unit * 2,
-    paddingLeft: theme.spacing.unit * 2,
-    paddingRight: theme.spacing.unit * 2,
+    marginTop: 56 + theme.spacing(2),
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(2),
   },
   container: {
     marginTop: 56,

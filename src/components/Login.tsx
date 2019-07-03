@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Button, Typography, Grid, Link } from '@material-ui/core';
+import { Button, Typography, Grid, Link, Theme } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { useWindowSize } from 'the-platform';
 import { ThemeContext } from '../utils/theme';
@@ -7,23 +7,23 @@ import { userSession } from '../utils/blockstack';
 
 const LinkAny: any = Link;
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme: Theme) => ({
   container: {
     display: 'flex',
     justifyContent: 'center',
     flexDirection: 'column',
     textAlign: 'center',
-    marginTop: theme.spacing.unit * 2,
-    marginBottom: theme.spacing.unit * 2,
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(2),
   },
   loginButton: {
-    marginTop: theme.spacing.unit * 2,
+    marginTop: theme.spacing(2),
   },
   image: {
     height: 130,
     maxWidth: '100%',
-    marginTop: theme.spacing.unit * 2,
-    marginBottom: theme.spacing.unit * 2,
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(2),
   },
 }));
 

@@ -9,25 +9,26 @@ import {
   Grid,
   Button,
   TextField,
+  Theme,
 } from '@material-ui/core';
 import { ArrowBack } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/styles';
 import { addAccount, File } from '../utils/accounts';
 import { Loader } from './Loader';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme: Theme) => ({
   flex: {
     flex: 1,
   },
   loadingContainer: {
-    marginTop: 56 + theme.spacing.unit * 2,
+    marginTop: 56 + theme.spacing(2),
   },
   container: {
     marginTop: 56,
   },
   formContainer: {
-    marginLeft: theme.spacing.unit * 2,
-    marginRight: theme.spacing.unit * 2,
+    marginLeft: theme.spacing(2),
+    marginRight: theme.spacing(2),
     display: 'flex',
     flexDirection: 'column',
   },
@@ -115,7 +116,7 @@ export const AddAccount = (props: Props) => {
       {loading && <Loader className={classes.loadingContainer} />}
 
       {!loading && (
-        <Grid container spacing={24} className={classes.container}>
+        <Grid container spacing={3} className={classes.container}>
           <Grid item xs={12}>
             <form
               className={classes.formContainer}

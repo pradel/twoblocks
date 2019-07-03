@@ -1,5 +1,11 @@
 import React, { useState, useContext } from 'react';
-import { Typography, IconButton, Menu, MenuItem } from '@material-ui/core';
+import {
+  Typography,
+  IconButton,
+  Menu,
+  MenuItem,
+  Theme,
+} from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { MoreVert } from '@material-ui/icons';
 import { Account } from '../types';
@@ -7,21 +13,21 @@ import { DeleteAccount } from './DeleteAccount';
 import { File } from '../utils/accounts';
 import { ThemeContext } from '../utils/theme';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme: Theme) => ({
   leftContainer: {
     flex: 1,
-    marginTop: theme.spacing.unit,
+    marginTop: theme.spacing(),
   },
   name: {
-    marginBottom: theme.spacing.unit,
+    marginBottom: theme.spacing(),
   },
   container: {
-    marginTop: theme.spacing.unit * 2,
-    marginBottom: theme.spacing.unit * 2,
-    paddingTop: theme.spacing.unit,
-    paddingBottom: theme.spacing.unit,
-    paddingLeft: theme.spacing.unit * 2,
-    paddingRight: theme.spacing.unit * 2,
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(2),
+    paddingTop: theme.spacing(),
+    paddingBottom: theme.spacing(),
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(2),
     display: 'flex',
     flexDirection: 'row',
     backgroundColor: theme.palette.background.paper,
@@ -70,7 +76,7 @@ export const AccountItem = (props: Props) => {
           </Typography>
           <Typography
             variant="h5"
-            color={theme === 'light' ? 'primary' : 'default'}
+            color={theme === 'light' ? 'primary' : 'initial'}
           >
             {code}
           </Typography>
