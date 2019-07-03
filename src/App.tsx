@@ -22,9 +22,6 @@ const App = () => {
         palette: {
           type: theme,
         },
-        typography: {
-          useNextVariants: true,
-        },
       }),
     [theme]
   );
