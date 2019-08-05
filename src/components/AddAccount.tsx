@@ -41,6 +41,13 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(1),
   },
+  selectMenuIcon: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  iconImage: {
+    marginRight: theme.spacing(2),
+  },
 }));
 
 interface Props {
@@ -160,9 +167,18 @@ export const AddAccount = (props: Props) => {
                   inputProps={{
                     id: 'icon',
                   }}
+                  classes={{
+                    selectMenu: classes.selectMenuIcon,
+                  }}
                 >
                   {Object.keys(icons).map(key => (
                     <MenuItem key={key} value={key}>
+                      <img
+                        width="25"
+                        src={icons[key].url}
+                        alt={key}
+                        className={classes.iconImage}
+                      />
                       {icons[key].name}
                     </MenuItem>
                   ))}

@@ -7,6 +7,10 @@ export const icons: { [key: string]: { name: string; url: string } } = {
     url: 'https://cdn.svgporn.com/logos/angellist.svg',
   },
   apple: { name: 'Apple', url: 'https://cdn.svgporn.com/logos/apple.svg' },
+  bitcoin: {
+    name: 'Bitcoin',
+    url: 'https://cdn.svgporn.com/logos/bitcoin.svg',
+  },
   campfire: {
     name: 'Campfire',
     url: 'https://cdn.svgporn.com/logos/campfire.svg',
@@ -14,6 +18,10 @@ export const icons: { [key: string]: { name: string; url: string } } = {
   circleci: {
     name: 'CircleCI',
     url: 'https://cdn.svgporn.com/logos/circleci.svg',
+  },
+  'digital-ocean': {
+    name: 'Digital Ocean',
+    url: 'https://cdn.svgporn.com/logos/digital-ocean.svg',
   },
   discord: {
     name: 'Discord',
@@ -31,6 +39,10 @@ export const icons: { [key: string]: { name: string; url: string } } = {
     name: 'Firefox',
     url: 'https://cdn.svgporn.com/logos/firefox.svg',
   },
+  gmail: {
+    name: 'Gmail',
+    url: 'https://cdn.svgporn.com/logos/google-gmail.svg',
+  },
   github: {
     name: 'Github',
     url: 'https://cdn.svgporn.com/logos/github-icon.svg',
@@ -43,6 +55,18 @@ export const icons: { [key: string]: { name: string; url: string } } = {
     name: 'Google',
     url: 'https://cdn.svgporn.com/logos/google-icon.svg',
   },
+  heroku: {
+    name: 'Heroku',
+    url: 'https://cdn.svgporn.com/logos/heroku.svg',
+  },
+  ifttt: {
+    name: 'IFTTT',
+    url: 'https://cdn.svgporn.com/logos/ifttt.svg',
+  },
+  kickstarter: {
+    name: 'Kickstarter',
+    url: 'https://cdn.svgporn.com/logos/kickstarter.svg',
+  },
   npm: {
     name: 'npm',
     url: 'https://cdn.svgporn.com/logos/npm.svg',
@@ -51,8 +75,16 @@ export const icons: { [key: string]: { name: string; url: string } } = {
     name: 'Slack',
     url: 'https://cdn.svgporn.com/logos/slack-icon.svg',
   },
+  tumblr: {
+    name: 'Tumblr',
+    url: 'https://cdn.svgporn.com/logos/twitter.svg',
+  },
   twitter: {
     name: 'Twitter',
     url: 'https://cdn.svgporn.com/logos/twitter.svg',
+  },
+  wordpress: {
+    name: 'Wordpress',
+    url: 'https://cdn.svgporn.com/logos/wordpress-icon.svg',
   },
 };
