@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
-import { Button, Typography, Grid, Link, Theme } from '@material-ui/core';
+import { Typography, Grid, Link, Theme } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { useWindowSize } from 'the-platform';
+import { BlockstackButton } from 'react-blockstack-button';
 import { ThemeContext } from '../utils/theme';
 import { userSession } from '../utils/blockstack';
 
@@ -16,8 +17,11 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(2),
   },
-  loginButton: {
+  loginButtonContainer: {
     marginTop: theme.spacing(2),
+  },
+  loginButton: {
+    cursor: 'pointer',
   },
   image: {
     height: 130,
@@ -70,15 +74,12 @@ export const Login = () => {
           </LinkAny>
         </Typography>
 
-        <div>
-          <Button
-            className={classes.loginButton}
+        <div className={classes.loginButtonContainer}>
+          <BlockstackButton
             onClick={handleLogin}
-            variant="outlined"
-            color={theme === 'light' ? 'primary' : 'default'}
-          >
-            Get started
-          </Button>
+            variant={theme === 'light' ? 'blue' : 'light'}
+            buttonProps={{ className: classes.loginButton }}
+          />
         </div>
       </Grid>
     </Grid>
