@@ -10,11 +10,16 @@ import {
   Button,
   TextField,
   Theme,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
 } from '@material-ui/core';
 import { ArrowBack } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/styles';
 import { addAccount, File } from '../utils/accounts';
 import { Loader } from './Loader';
+import { icons } from '../utils/icons';
 
 const useStyles = makeStyles((theme: Theme) => ({
   flex: {
@@ -31,6 +36,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginRight: theme.spacing(2),
     display: 'flex',
     flexDirection: 'column',
+  },
+  formControlIcon: {
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(1),
   },
 }));
 
@@ -49,6 +58,7 @@ export const AddAccount = (props: Props) => {
   const [values, setValues] = useState({
     name: '',
     secret: '',
+    icon: undefined,
   });
   const [errors, setErrors] = useState({
     name: false,
@@ -60,6 +70,7 @@ export const AddAccount = (props: Props) => {
     setValues({
       name: '',
       secret: '',
+      icon: undefined,
     });
     setErrors({ name: false, secret: false });
     setLoading(false);
@@ -140,6 +151,23 @@ export const AddAccount = (props: Props) => {
                 margin="normal"
                 error={errors.secret}
               />
+
+              <FormControl className={classes.formControlIcon}>
+                <InputLabel htmlFor="icon">Icon</InputLabel>
+                <Select
+                  value={values.icon}
+                  onChange={handleChange('icon')}
+                  inputProps={{
+                    id: 'icon',
+                  }}
+                >
+                  {Object.keys(icons).map(key => (
+                    <MenuItem key={key} value={key}>
+                      {icons[key].name}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
             </form>
           </Grid>
         </Grid>

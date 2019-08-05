@@ -12,8 +12,14 @@ import { Account } from '../types';
 import { DeleteAccount } from './DeleteAccount';
 import { File } from '../utils/accounts';
 import { ThemeContext } from '../utils/theme';
+import { icons } from '../utils/icons';
 
 const useStyles = makeStyles((theme: Theme) => ({
+  iconContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    marginRight: theme.spacing(2),
+  },
   leftContainer: {
     flex: 1,
     marginTop: theme.spacing(),
@@ -70,6 +76,15 @@ export const AccountItem = (props: Props) => {
   return (
     <React.Fragment>
       <div className={classes.container}>
+        {props.account.icon && (
+          <div className={classes.iconContainer}>
+            <img
+              width="32"
+              src={icons[props.account.icon] && icons[props.account.icon].url}
+              alt={props.account.icon}
+            />
+          </div>
+        )}
         <div className={classes.leftContainer}>
           <Typography variant="caption" className={classes.name}>
             {props.account.name}
