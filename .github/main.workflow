@@ -4,7 +4,7 @@ workflow "Build and test" {
 }
 
 action "Install" {
-  uses = "docker://node:10"
+  uses = "docker://node:11"
   args = "yarn install"
   env = {
     CI = "true"
@@ -12,7 +12,7 @@ action "Install" {
 }
 
 action "Build" {
-  uses = "docker://node:10"
+  uses = "docker://node:11"
   needs = ["Install"]
   args = "yarn build"
   env = {
