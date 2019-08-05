@@ -1,11 +1,15 @@
 import React, { createContext, useReducer, useEffect } from 'react';
-import { File, getFile } from '../utils/accounts';
+import { File, getFile, putFile } from '../utils/accounts';
+import { Account } from '../types';
 
 export const FileContext = createContext<{
   file?: File;
   loading?: boolean;
   setFile(file: File): void;
-}>({ setFile: () => null });
+  addAccount(account: Account): Promise<void>;
+  editAccount(index: number, account: Account): Promise<void>;
+  removeAccount(index: number): Promise<void>;
+}>(undefined as any);
 
 interface Props {
   children: React.ReactNode;
@@ -59,13 +63,53 @@ export const FileContextProvider = ({ children }: Props) => {
     dispatch({ type: 'success', file });
   };
 
+  /**
+   * Add an account to the file and save it
+   */
+  const addAccount = async (account: Account) => {
+    if (!state.file) return;
+    const file = state.file;
+    file.accounts.push(account);
+    await putFile(file);
+    dispatch({ type: 'success', file });
+  };
+
+  /**
+   * Edit an account and save it
+   */
+  const editAccount = async (index: number, account: Account) => {
+    if (!state.file) return;
+    const file = state.file;
+    file.accounts[index] = account;
+    await putFile(file);
+    dispatch({ type: 'success', file });
+  };
+
+  /**
+   * Remove an account at a given index and save it
+   */
+  const removeAccount = async (index: number) => {
+    if (!state.file) return;
+    const file = state.file;
+    file.accounts.splice(index, 1);
+    await putFile(file);
+    dispatch({ type: 'success', file });
+  };
+
   useEffect(() => {
     fetchFile();
   }, []);
 
   return (
     <FileContext.Provider
-      value={{ file: state.file, loading: state.loading, setFile }}
+      value={{
+        file: state.file,
+        loading: state.loading,
+        setFile,
+        addAccount,
+        editAccount,
+        removeAccount,
+      }}
     >
       {children}
     </FileContext.Provider>

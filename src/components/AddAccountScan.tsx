@@ -13,7 +13,6 @@ import { ArrowBack } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/styles';
 import QrReader from 'react-qr-reader';
 import * as queryString from 'query-string';
-import { addAccount } from '../utils/accounts';
 import { Loader } from './Loader';
 import { FileContext } from '../context/FileContext';
 
@@ -46,7 +45,7 @@ function Transition(props: any) {
 export const AddAccountScan = ({ open, onClose }: Props) => {
   const classes = useStyles();
 
-  const { setFile } = useContext(FileContext);
+  const { addAccount } = useContext(FileContext);
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -79,12 +78,11 @@ export const AddAccountScan = ({ open, onClose }: Props) => {
         const parsedUrl = parsed.url.split('/');
         const accountName = parsedUrl[parsedUrl.length - 1];
 
-        const file = await addAccount({
+        await addAccount({
           name: accountName,
           secret: parsed.query.secret as string,
         });
 
-        setFile(file);
         onClose();
       } catch (error) {
         handleError(error);

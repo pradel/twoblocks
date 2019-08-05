@@ -18,7 +18,6 @@ import {
 import { ArrowBack } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/styles';
 import { Account } from '../types';
-import { editAccount } from '../utils/accounts';
 import { Loader } from './Loader';
 import { icons } from '../utils/icons';
 import { FileContext } from '../context/FileContext';
@@ -71,7 +70,7 @@ export const EditAccount = ({
 }: Props) => {
   const classes = useStyles();
 
-  const { setFile } = useContext(FileContext);
+  const { editAccount } = useContext(FileContext);
 
   const [values, setValues] = useState({
     name: account.name,
@@ -103,10 +102,9 @@ export const EditAccount = ({
 
     try {
       setLoading(true);
-      const file = await editAccount(accountIndex, { ...account, ...values });
+      await editAccount(accountIndex, { ...account, ...values });
 
       reset();
-      setFile(file);
       onClose();
     } catch (error) {
       setLoading(false);

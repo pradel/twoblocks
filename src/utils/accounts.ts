@@ -31,33 +31,3 @@ export const getFile = async (): Promise<File> => {
 export const putFile = async (file: File): Promise<void> => {
   await userSession.putFile(fileName, JSON.stringify(file));
 };
-
-/**
- * Add an account to the file and save it
- */
-export const addAccount = async (account: Account): Promise<File> => {
-  const file = await getFile();
-  file.accounts.push(account);
-  await putFile(file);
-  return file;
-};
-
-/**
- * Remove an account at a given index and save it
- */
-export const removeAccount = async (index: number): Promise<File> => {
-  const file = await getFile();
-  file.accounts.splice(index, 1);
-  await putFile(file);
-  return file;
-};
-
-export const editAccount = async (
-  index: number,
-  account: Account
-): Promise<File> => {
-  const file = await getFile();
-  file.accounts[index] = account;
-  await putFile(file);
-  return file;
-};

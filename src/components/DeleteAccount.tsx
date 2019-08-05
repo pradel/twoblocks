@@ -7,7 +7,6 @@ import {
   DialogActions,
   Button,
 } from '@material-ui/core';
-import { removeAccount } from '../utils/accounts';
 import { Account } from '../types';
 import { Loader } from './Loader';
 import { FileContext } from '../context/FileContext';
@@ -25,7 +24,7 @@ export const DeleteAccount = ({
   account,
   accountIndex,
 }: Props) => {
-  const { setFile } = useContext(FileContext);
+  const { removeAccount } = useContext(FileContext);
 
   const [loading, setLoading] = useState(false);
 
@@ -36,10 +35,9 @@ export const DeleteAccount = ({
   const handleDelete = async () => {
     try {
       setLoading(true);
-      const file = await removeAccount(accountIndex);
+      await removeAccount(accountIndex);
       onClose();
       reset();
-      setFile(file);
     } catch (error) {
       setLoading(false);
       alert(error.message);

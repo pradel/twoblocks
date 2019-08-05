@@ -17,7 +17,6 @@ import {
 } from '@material-ui/core';
 import { ArrowBack } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/styles';
-import { addAccount } from '../utils/accounts';
 import { Loader } from './Loader';
 import { icons } from '../utils/icons';
 import { FileContext } from '../context/FileContext';
@@ -63,7 +62,7 @@ function Transition(props: any) {
 export const AddAccount = ({ open, onClose }: Props) => {
   const classes = useStyles();
 
-  const { setFile } = useContext(FileContext);
+  const { addAccount } = useContext(FileContext);
 
   const [values, setValues] = useState({
     name: '',
@@ -90,7 +89,9 @@ export const AddAccount = ({ open, onClose }: Props) => {
     setValues({ ...values, [name]: event.target.value });
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
     setErrors({ name: false, secret: false });
 
     if (!values.name || values.name === '') {
@@ -103,10 +104,9 @@ export const AddAccount = ({ open, onClose }: Props) => {
     }
     try {
       setLoading(true);
-      const file = await addAccount(values);
+      await addAccount(values);
 
       reset();
-      setFile(file);
       onClose();
     } catch (error) {
       setLoading(false);
@@ -139,6 +139,7 @@ export const AddAccount = ({ open, onClose }: Props) => {
               className={classes.formContainer}
               noValidate
               autoComplete="off"
+              onSubmit={handleSubmit}
             >
               <TextField
                 id="name"
