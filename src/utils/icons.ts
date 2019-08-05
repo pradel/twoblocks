@@ -77,7 +77,7 @@ export const icons: { [key: string]: { name: string; url: string } } = {
   },
   tumblr: {
     name: 'Tumblr',
-    url: 'https://cdn.svgporn.com/logos/twitter.svg',
+    url: 'https://cdn.svgporn.com/logos/tumblr.svg',
   },
   twitter: {
     name: 'Twitter',
