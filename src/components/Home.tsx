@@ -17,7 +17,7 @@ import { getFile, File } from '../utils/accounts';
 import { AccountList } from './AccountList';
 import { AddAccount } from './AddAccount';
 import { AddAccountScan } from './AddAccountScan';
-import { ThemeContext } from '../utils/theme';
+import { ThemeContext } from '../context/ThemeContext';
 import { userSession } from '../utils/blockstack';
 
 const useStyles = makeStyles((theme: Theme) => ({

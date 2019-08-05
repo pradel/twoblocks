@@ -12,7 +12,7 @@ import { Account } from '../types';
 import { EditAccount } from './EditAccount';
 import { DeleteAccount } from './DeleteAccount';
 import { File } from '../utils/accounts';
-import { ThemeContext } from '../utils/theme';
+import { ThemeContext } from '../context/ThemeContext';
 import { icons } from '../utils/icons';
 
 const useStyles = makeStyles((theme: Theme) => ({

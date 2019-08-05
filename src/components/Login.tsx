@@ -3,7 +3,7 @@ import { Typography, Grid, Link, Theme } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { useWindowSize } from 'the-platform';
 import { BlockstackButton } from 'react-blockstack-button';
-import { ThemeContext } from '../utils/theme';
+import { ThemeContext } from '../context/ThemeContext';
 import { userSession } from '../utils/blockstack';
 
 const LinkAny: any = Link;

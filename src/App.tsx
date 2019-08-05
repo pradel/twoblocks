@@ -5,7 +5,7 @@ import { CssBaseline } from '@material-ui/core';
 import { Login } from './components/Login';
 import { Home } from './components/Home';
 import { Loader } from './components/Loader';
-import { ThemeContext, themeStorageKey } from './utils/theme';
+import { ThemeContext, themeStorageKey } from './context/ThemeContext';
 import { userSession } from './utils/blockstack';
 
 const App = () => {
