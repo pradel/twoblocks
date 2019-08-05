@@ -9,11 +9,17 @@ import {
 import { makeStyles } from '@material-ui/styles';
 import { MoreVert } from '@material-ui/icons';
 import { Account } from '../types';
+import { EditAccount } from './EditAccount';
 import { DeleteAccount } from './DeleteAccount';
-import { File } from '../utils/accounts';
-import { ThemeContext } from '../utils/theme';
+import { ThemeContext } from '../context/ThemeContext';
+import { icons } from '../utils/icons';
 
 const useStyles = makeStyles((theme: Theme) => ({
+  iconContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    marginRight: theme.spacing(2),
+  },
   leftContainer: {
     flex: 1,
     marginTop: theme.spacing(),
@@ -43,19 +49,24 @@ interface Props {
   index: number;
   account: Account;
   remainingSeconds: number;
-  setFile: (file: File) => void;
 }
 
 export const AccountItem = (props: Props) => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
   const open = Boolean(anchorEl);
+  const [editModalOpen, setEditModalOpen] = useState(false);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const theme = useContext(ThemeContext);
 
   const handleRequestDelete = () => {
     setAnchorEl(null);
     setDeleteModalOpen(true);
+  };
+
+  const handleRequestEdit = () => {
+    setAnchorEl(null);
+    setEditModalOpen(true);
   };
 
   let code;
@@ -70,6 +81,15 @@ export const AccountItem = (props: Props) => {
   return (
     <React.Fragment>
       <div className={classes.container}>
+        {props.account.icon && (
+          <div className={classes.iconContainer}>
+            <img
+              width="32"
+              src={icons[props.account.icon] && icons[props.account.icon].url}
+              alt={props.account.icon}
+            />
+          </div>
+        )}
         <div className={classes.leftContainer}>
           <Typography variant="caption" className={classes.name}>
             {props.account.name}
@@ -95,19 +115,25 @@ export const AccountItem = (props: Props) => {
             open={open}
             onClose={() => setAnchorEl(null)}
           >
-            {/* <MenuItem onClick={() => null}>Edit</MenuItem> */}
+            <MenuItem onClick={handleRequestEdit}>Edit</MenuItem>
             <MenuItem onClick={handleRequestDelete}>Delete</MenuItem>
           </Menu>
           <Typography>{props.remainingSeconds}</Typography>
         </div>
       </div>
 
+      <EditAccount
+        open={editModalOpen}
+        onClose={() => setEditModalOpen(false)}
+        accountIndex={props.index}
+        account={props.account}
+      />
+
       <DeleteAccount
         open={deleteModalOpen}
         onClose={() => setDeleteModalOpen(false)}
         accountIndex={props.index}
         account={props.account}
-        setFile={props.setFile}
       />
     </React.Fragment>
   );

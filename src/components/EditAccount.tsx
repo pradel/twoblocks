@@ -17,6 +17,7 @@ import {
 } from '@material-ui/core';
 import { ArrowBack } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/styles';
+import { Account } from '../types';
 import { Loader } from './Loader';
 import { icons } from '../utils/icons';
 import { FileContext } from '../context/FileContext';
@@ -53,35 +54,35 @@ const useStyles = makeStyles((theme: Theme) => ({
 interface Props {
   open: boolean;
   onClose: () => void;
+  account: Account;
+  accountIndex: number;
 }
 
 function Transition(props: any) {
   return <Slide direction="up" {...props} />;
 }
 
-export const AddAccount = ({ open, onClose }: Props) => {
+export const EditAccount = ({
+  open,
+  onClose,
+  accountIndex,
+  account,
+}: Props) => {
   const classes = useStyles();
 
-  const { addAccount } = useContext(FileContext);
+  const { editAccount } = useContext(FileContext);
 
   const [values, setValues] = useState({
-    name: '',
-    secret: '',
-    icon: undefined,
+    name: account.name,
+    icon: account.icon,
   });
   const [errors, setErrors] = useState({
     name: false,
-    secret: false,
   });
   const [loading, setLoading] = useState(false);
 
   const reset = () => {
-    setValues({
-      name: '',
-      secret: '',
-      icon: undefined,
-    });
-    setErrors({ name: false, secret: false });
+    setErrors({ name: false });
     setLoading(false);
   };
 
@@ -92,19 +93,16 @@ export const AddAccount = ({ open, onClose }: Props) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    setErrors({ name: false, secret: false });
+    setErrors({ name: false });
 
     if (!values.name || values.name === '') {
       setErrors({ ...errors, name: true });
       return;
     }
-    if (!values.secret || values.secret === '') {
-      setErrors({ ...errors, secret: true });
-      return;
-    }
+
     try {
       setLoading(true);
-      await addAccount(values);
+      await editAccount(accountIndex, { ...account, ...values });
 
       reset();
       onClose();
@@ -122,7 +120,7 @@ export const AddAccount = ({ open, onClose }: Props) => {
             <ArrowBack />
           </IconButton>
           <Typography variant="h6" color="inherit" className={classes.flex}>
-            Enter account details
+            Edit account details
           </Typography>
           <Button color="inherit" onClick={handleSubmit} disabled={loading}>
             save
@@ -148,15 +146,6 @@ export const AddAccount = ({ open, onClose }: Props) => {
                 onChange={handleChange('name')}
                 margin="normal"
                 error={errors.name}
-              />
-
-              <TextField
-                id="secret"
-                label="Key"
-                value={values.secret}
-                onChange={handleChange('secret')}
-                margin="normal"
-                error={errors.secret}
               />
 
               <FormControl className={classes.formControlIcon}>

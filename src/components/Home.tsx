@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import {
   AppBar,
   Toolbar,
@@ -13,11 +13,11 @@ import {
 import { SpeedDial, SpeedDialAction, SpeedDialIcon } from '@material-ui/lab';
 import { makeStyles } from '@material-ui/styles';
 import { MoreVert, Keyboard, PhotoCamera } from '@material-ui/icons';
-import { getFile, File } from '../utils/accounts';
 import { AccountList } from './AccountList';
 import { AddAccount } from './AddAccount';
 import { AddAccountScan } from './AddAccountScan';
-import { ThemeContext } from '../utils/theme';
+import { ThemeContext } from '../context/ThemeContext';
+import { FileContext } from '../context/FileContext';
 import { userSession } from '../utils/blockstack';
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -57,14 +57,15 @@ interface Props {
 
 export const Home = ({ setTheme }: Props) => {
   const classes = useStyles();
-  const [file, setFile] = useState<null | File>(null);
+
+  const theme = useContext(ThemeContext);
+  const { file } = useContext(FileContext);
+
   const [speedDialOpen, setSpeedDialOpen] = useState(false);
   const [addAccountScanOpen, setAddAccountScanOpen] = useState(false);
   const [addAccountModalOpen, setAddAccountModalOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
   const menuOpen = Boolean(anchorEl);
-
-  const theme = useContext(ThemeContext);
 
   const handleSpeedDialClick = () => {
     setSpeedDialOpen(!speedDialOpen);
@@ -97,16 +98,6 @@ export const Home = ({ setTheme }: Props) => {
   const handleLogout = () => {
     userSession.signUserOut(window.location.origin);
   };
-
-  useEffect(() => {
-    getFile()
-      .then(file => {
-        setFile(file);
-      })
-      .catch(error => {
-        alert(error.message);
-      });
-  }, []);
 
   return (
     <React.Fragment>
@@ -166,7 +157,7 @@ export const Home = ({ setTheme }: Props) => {
 
         {file && (
           <Grid item xs={12}>
-            <AccountList file={file} setFile={setFile} />
+            <AccountList file={file} />
           </Grid>
         )}
       </Grid>
@@ -174,13 +165,11 @@ export const Home = ({ setTheme }: Props) => {
       <AddAccount
         open={addAccountModalOpen}
         onClose={() => setAddAccountModalOpen(false)}
-        setFile={setFile}
       />
 
       <AddAccountScan
         open={addAccountScanOpen}
         onClose={() => setAddAccountScanOpen(false)}
-        setFile={setFile}
       />
 
       {file && (

@@ -4,7 +4,6 @@ import { AccountItem } from './AccountItem';
 
 interface Props {
   file: File;
-  setFile: (file: File) => void;
 }
 
 export const AccountList = (props: Props) => {
@@ -28,7 +27,6 @@ export const AccountList = (props: Props) => {
           index={index}
           account={account}
           remainingSeconds={seconds}
-          setFile={props.setFile}
         />
       ))}
     </React.Fragment>
