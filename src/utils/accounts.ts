@@ -51,3 +51,13 @@ export const removeAccount = async (index: number): Promise<File> => {
   await putFile(file);
   return file;
 };
+
+export const editAccount = async (
+  index: number,
+  account: Account
+): Promise<File> => {
+  const file = await getFile();
+  file.accounts[index] = account;
+  await putFile(file);
+  return file;
+};

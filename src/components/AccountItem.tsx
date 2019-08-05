@@ -9,6 +9,7 @@ import {
 import { makeStyles } from '@material-ui/styles';
 import { MoreVert } from '@material-ui/icons';
 import { Account } from '../types';
+import { EditAccount } from './EditAccount';
 import { DeleteAccount } from './DeleteAccount';
 import { File } from '../utils/accounts';
 import { ThemeContext } from '../utils/theme';
@@ -56,12 +57,18 @@ export const AccountItem = (props: Props) => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
   const open = Boolean(anchorEl);
+  const [editModalOpen, setEditModalOpen] = useState(false);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const theme = useContext(ThemeContext);
 
   const handleRequestDelete = () => {
     setAnchorEl(null);
     setDeleteModalOpen(true);
+  };
+
+  const handleRequestEdit = () => {
+    setAnchorEl(null);
+    setEditModalOpen(true);
   };
 
   let code;
@@ -110,12 +117,20 @@ export const AccountItem = (props: Props) => {
             open={open}
             onClose={() => setAnchorEl(null)}
           >
-            {/* <MenuItem onClick={() => null}>Edit</MenuItem> */}
+            <MenuItem onClick={handleRequestEdit}>Edit</MenuItem>
             <MenuItem onClick={handleRequestDelete}>Delete</MenuItem>
           </Menu>
           <Typography>{props.remainingSeconds}</Typography>
         </div>
       </div>
+
+      <EditAccount
+        open={editModalOpen}
+        onClose={() => setEditModalOpen(false)}
+        accountIndex={props.index}
+        account={props.account}
+        setFile={props.setFile}
+      />
 
       <DeleteAccount
         open={deleteModalOpen}
