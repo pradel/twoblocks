@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
   Dialog,
   Slide,
@@ -18,9 +18,10 @@ import {
 import { ArrowBack } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/styles';
 import { Account } from '../types';
-import { editAccount, File } from '../utils/accounts';
+import { editAccount } from '../utils/accounts';
 import { Loader } from './Loader';
 import { icons } from '../utils/icons';
+import { FileContext } from '../context/FileContext';
 
 const useStyles = makeStyles((theme: Theme) => ({
   flex: {
@@ -54,7 +55,6 @@ const useStyles = makeStyles((theme: Theme) => ({
 interface Props {
   open: boolean;
   onClose: () => void;
-  setFile: (file: File) => void;
   account: Account;
   accountIndex: number;
 }
@@ -66,11 +66,13 @@ function Transition(props: any) {
 export const EditAccount = ({
   open,
   onClose,
-  setFile,
   accountIndex,
   account,
 }: Props) => {
   const classes = useStyles();
+
+  const { setFile } = useContext(FileContext);
+
   const [values, setValues] = useState({
     name: account.name,
     icon: account.icon,

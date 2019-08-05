@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
   Dialog,
   Slide,
@@ -17,9 +17,10 @@ import {
 } from '@material-ui/core';
 import { ArrowBack } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/styles';
-import { addAccount, File } from '../utils/accounts';
+import { addAccount } from '../utils/accounts';
 import { Loader } from './Loader';
 import { icons } from '../utils/icons';
+import { FileContext } from '../context/FileContext';
 
 const useStyles = makeStyles((theme: Theme) => ({
   flex: {
@@ -53,15 +54,17 @@ const useStyles = makeStyles((theme: Theme) => ({
 interface Props {
   open: boolean;
   onClose: () => void;
-  setFile: (file: File) => void;
 }
 
 function Transition(props: any) {
   return <Slide direction="up" {...props} />;
 }
 
-export const AddAccount = (props: Props) => {
+export const AddAccount = ({ open, onClose }: Props) => {
   const classes = useStyles();
+
+  const { setFile } = useContext(FileContext);
+
   const [values, setValues] = useState({
     name: '',
     secret: '',
@@ -103,8 +106,8 @@ export const AddAccount = (props: Props) => {
       const file = await addAccount(values);
 
       reset();
-      props.setFile(file);
-      props.onClose();
+      setFile(file);
+      onClose();
     } catch (error) {
       setLoading(false);
       alert(error.message);
@@ -112,14 +115,10 @@ export const AddAccount = (props: Props) => {
   };
 
   return (
-    <Dialog fullScreen open={props.open} TransitionComponent={Transition}>
+    <Dialog fullScreen open={open} TransitionComponent={Transition}>
       <AppBar>
         <Toolbar>
-          <IconButton
-            color="inherit"
-            onClick={props.onClose}
-            aria-label="Close"
-          >
+          <IconButton color="inherit" onClick={onClose} aria-label="Close">
             <ArrowBack />
           </IconButton>
           <Typography variant="h6" color="inherit" className={classes.flex}>

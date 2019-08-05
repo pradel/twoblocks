@@ -6,6 +6,7 @@ import { Login } from './components/Login';
 import { Home } from './components/Home';
 import { Loader } from './components/Loader';
 import { ThemeContext, themeStorageKey } from './context/ThemeContext';
+import { FileContextProvider } from './context/FileContext';
 import { userSession } from './utils/blockstack';
 
 const App = () => {
@@ -51,7 +52,11 @@ const App = () => {
       <ThemeContext.Provider value={theme}>
         <CssBaseline />
         {!loggingIn && !loggedIn && <Login />}
-        {!loggingIn && loggedIn && <Home setTheme={handleChangeTheme} />}
+        {!loggingIn && loggedIn && (
+          <FileContextProvider>
+            <Home setTheme={handleChangeTheme} />
+          </FileContextProvider>
+        )}
         {loggingIn && <Loader />}
       </ThemeContext.Provider>
     </ThemeProvider>

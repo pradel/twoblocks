@@ -11,7 +11,6 @@ import { MoreVert } from '@material-ui/icons';
 import { Account } from '../types';
 import { EditAccount } from './EditAccount';
 import { DeleteAccount } from './DeleteAccount';
-import { File } from '../utils/accounts';
 import { ThemeContext } from '../context/ThemeContext';
 import { icons } from '../utils/icons';
 
@@ -50,7 +49,6 @@ interface Props {
   index: number;
   account: Account;
   remainingSeconds: number;
-  setFile: (file: File) => void;
 }
 
 export const AccountItem = (props: Props) => {
@@ -129,7 +127,6 @@ export const AccountItem = (props: Props) => {
         onClose={() => setEditModalOpen(false)}
         accountIndex={props.index}
         account={props.account}
-        setFile={props.setFile}
       />
 
       <DeleteAccount
@@ -137,7 +134,6 @@ export const AccountItem = (props: Props) => {
         onClose={() => setDeleteModalOpen(false)}
         accountIndex={props.index}
         account={props.account}
-        setFile={props.setFile}
       />
     </React.Fragment>
   );

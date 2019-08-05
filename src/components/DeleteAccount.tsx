@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
   Dialog,
   DialogTitle,
@@ -7,14 +7,14 @@ import {
   DialogActions,
   Button,
 } from '@material-ui/core';
-import { removeAccount, File } from '../utils/accounts';
+import { removeAccount } from '../utils/accounts';
 import { Account } from '../types';
 import { Loader } from './Loader';
+import { FileContext } from '../context/FileContext';
 
 interface Props {
   open: boolean;
   onClose: () => void;
-  setFile: (file: File) => void;
   account: Account;
   accountIndex: number;
 }
@@ -22,10 +22,11 @@ interface Props {
 export const DeleteAccount = ({
   open,
   onClose,
-  setFile,
   account,
   accountIndex,
 }: Props) => {
+  const { setFile } = useContext(FileContext);
+
   const [loading, setLoading] = useState(false);
 
   const reset = () => {

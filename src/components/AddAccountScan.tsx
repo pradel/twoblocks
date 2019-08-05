@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
   Dialog,
   Slide,
@@ -13,8 +13,9 @@ import { ArrowBack } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/styles';
 import QrReader from 'react-qr-reader';
 import * as queryString from 'query-string';
-import { File, addAccount } from '../utils/accounts';
+import { addAccount } from '../utils/accounts';
 import { Loader } from './Loader';
+import { FileContext } from '../context/FileContext';
 
 const useStyles = makeStyles((theme: Theme) => ({
   flex: {
@@ -36,20 +37,22 @@ const useStyles = makeStyles((theme: Theme) => ({
 interface Props {
   open: boolean;
   onClose: () => void;
-  setFile: (file: File) => void;
 }
 
 function Transition(props: any) {
   return <Slide direction="up" {...props} />;
 }
 
-export const AddAccountScan = (props: Props) => {
+export const AddAccountScan = ({ open, onClose }: Props) => {
   const classes = useStyles();
+
+  const { setFile } = useContext(FileContext);
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const handleClose = () => {
-    props.onClose();
+    onClose();
     setLoading(false);
     setError(null);
   };
@@ -81,8 +84,8 @@ export const AddAccountScan = (props: Props) => {
           secret: parsed.query.secret as string,
         });
 
-        props.setFile(file);
-        props.onClose();
+        setFile(file);
+        onClose();
       } catch (error) {
         handleError(error);
       }
@@ -90,7 +93,7 @@ export const AddAccountScan = (props: Props) => {
   };
 
   return (
-    <Dialog fullScreen open={props.open} TransitionComponent={Transition}>
+    <Dialog fullScreen open={open} TransitionComponent={Transition}>
       <AppBar>
         <Toolbar>
           <IconButton color="inherit" onClick={handleClose} aria-label="Close">
