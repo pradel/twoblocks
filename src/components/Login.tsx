@@ -1,87 +1,102 @@
-import React, { useContext } from 'react';
-import { Typography, Grid, Link, Theme } from '@material-ui/core';
+import React from 'react';
+import { Theme, Typography, Link } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
-import { useWindowSize } from 'the-platform';
 import { BlockstackButton } from 'react-blockstack-button';
-import { ThemeContext } from '../context/ThemeContext';
 import { userSession } from '../utils/blockstack';
 
-const LinkAny: any = Link;
-
 const useStyles = makeStyles((theme: Theme) => ({
-  container: {
-    display: 'flex',
-    justifyContent: 'center',
-    flexDirection: 'column',
-    textAlign: 'center',
-    marginTop: theme.spacing(2),
-    marginBottom: theme.spacing(2),
+  hero: {
+    maxWidth: '760px',
+    margin: '0 auto',
+    marginTop: theme.spacing(8),
+    marginBottom: theme.spacing(4),
   },
-  loginButtonContainer: {
-    marginTop: theme.spacing(2),
+  container: {
+    marginLeft: theme.spacing(4),
+    marginRight: theme.spacing(4),
+    [theme.breakpoints.up('sm')]: {
+      display: 'flex',
+      flexDirection: 'row',
+    },
+  },
+  brand: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    [theme.breakpoints.up('sm')]: {
+      flex: 1.2,
+      paddingRight: theme.spacing(8),
+      paddingBottom: theme.spacing(10),
+    },
+  },
+  brandContent: {
+    marginBottom: theme.spacing(2),
   },
   loginButton: {
     cursor: 'pointer',
+    display: 'flex',
   },
-  image: {
-    height: 130,
+  screen: {
+    flex: 1,
+    marginTop: theme.spacing(4),
+    [theme.breakpoints.up('sm')]: {
+      marginTop: 0,
+    },
+  },
+  screenImage: {
+    width: '100%',
     maxWidth: '100%',
-    marginTop: theme.spacing(2),
-    marginBottom: theme.spacing(2),
   },
 }));
 
 export const Login = () => {
   const classes = useStyles();
-  const { height } = useWindowSize();
-  const theme = useContext(ThemeContext);
 
   const handleLogin = () => {
     userSession.redirectToSignIn();
   };
 
   return (
-    <Grid container style={{ height }}>
-      <Grid item xs={12} className={classes.container}>
-        <Typography variant="h6">Twoblocks</Typography>
-
-        <img
-          src="/undraw_authentication_fsn5.svg"
-          alt="authentication illustration"
-          className={classes.image}
-        />
-
-        <Typography variant="body1">
-          Free and{' '}
-          <LinkAny
-            href="https://github.com/pradel/twoblocks"
-            target="_blank"
-            rel="noopener noreferrer"
-            color={theme === 'light' ? 'primary' : 'inherit'}
-          >
-            open source
-          </LinkAny>{' '}
-          2fa manager
-          <br />
-          built with{' '}
-          <LinkAny
-            href="https://blockstack.org"
-            target="_blank"
-            rel="noopener noreferrer"
-            color={theme === 'light' ? 'primary' : 'inherit'}
-          >
-            Blockstack
-          </LinkAny>
-        </Typography>
-
-        <div className={classes.loginButtonContainer}>
-          <BlockstackButton
-            onClick={handleLogin}
-            variant={theme === 'light' ? 'blue' : 'light'}
-            buttonProps={{ className: classes.loginButton }}
-          />
+    <React.Fragment>
+      <section className={classes.hero}>
+        <div className={classes.container}>
+          <div className={classes.brand}>
+            <Typography variant="h4" gutterBottom>
+              Twoblocks
+            </Typography>
+            <Typography className={classes.brandContent}>
+              Free and{' '}
+              <Link
+                href="https://github.com/pradel/twoblocks"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                open source
+              </Link>{' '}
+              2fa manager built with{' '}
+              <Link
+                href="https://blockstack.org"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Blockstack
+              </Link>
+              . Protect yourself online!
+            </Typography>
+            <BlockstackButton
+              onClick={handleLogin}
+              buttonProps={{ className: classes.loginButton }}
+            />
+          </div>
+          <div className={classes.screen}>
+            <img
+              alt="Screenshot of the app"
+              src="/img/app_screen.png"
+              className={classes.screenImage}
+            />
+          </div>
         </div>
-      </Grid>
-    </Grid>
+      </section>
+    </React.Fragment>
   );
 };
