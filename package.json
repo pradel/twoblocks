@@ -5,7 +5,7 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "test": "yarn size",
+    "test": "yarn build && yarn size",
     "testonly": "craco test",
     "size": "size-limit",
     "analyze": "ANALYZE=true yarn build",
