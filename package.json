@@ -38,7 +38,7 @@
   "size-limit": [
     {
       "path": "build/static/js/*.js",
-      "limit": "520 KB"
+      "limit": "530 KB"
     }
   ],
   "dependencies": {
