@@ -5,7 +5,7 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "test": "yarn build && yarn size",
+    "test": "echo TODO",
     "testonly": "craco test",
     "size": "size-limit",
     "analyze": "ANALYZE=true yarn build",
@@ -35,41 +35,43 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "size-limit": [
-    {
-      "path": "build/static/js/*.js",
-      "limit": "530 KB"
-    }
-  ],
+  "bundle-analyzer": {
+    "files": [
+      {
+        "test": "static/js/*.js",
+        "maxSize": "530 KB"
+      }
+    ]
+  },
   "dependencies": {
-    "@material-ui/core": "4.4.2",
-    "@material-ui/icons": "4.4.1",
-    "@material-ui/lab": "4.0.0-alpha.26",
-    "@material-ui/styles": "4.4.1",
+    "@material-ui/core": "4.5.1",
+    "@material-ui/icons": "4.5.1",
+    "@material-ui/lab": "4.0.0-alpha.29",
+    "@material-ui/styles": "4.5.0",
     "blockstack": "19.3.0",
     "otplib": "11.0.1",
     "query-string": "6.8.3",
-    "react": "16.9.0",
+    "react": "16.11.0",
     "react-blockstack-button": "0.1.0",
-    "react-dom": "16.9.0",
+    "react-dom": "16.11.0",
     "react-qr-reader": "2.2.1",
     "the-platform": "0.9.3",
     "typeface-roboto": "0.0.75"
   },
   "devDependencies": {
+    "@bundle-analyzer/webpack-plugin": "0.5.1",
     "@craco/craco": "5.5.0",
-    "@size-limit/preset-app": "2.1.6",
-    "@types/jest": "24.0.18",
-    "@types/node": "12.7.5",
+    "@types/jest": "24.0.19",
+    "@types/node": "12.11.7",
     "@types/query-string": "6.3.0",
-    "@types/react": "16.9.2",
-    "@types/react-dom": "16.9.0",
+    "@types/react": "16.9.11",
+    "@types/react-dom": "16.9.3",
     "@types/react-qr-reader": "2.1.2",
-    "husky": "3.0.5",
-    "lint-staged": "9.3.0",
+    "husky": "3.0.9",
+    "lint-staged": "9.4.2",
     "prettier": "1.18.2",
-    "react-scripts": "3.1.2",
-    "typescript": "3.6.3",
-    "webpack-bundle-analyzer": "3.5.1"
+    "react-scripts": "3.2.0",
+    "typescript": "3.6.4",
+    "webpack-bundle-analyzer": "3.6.0"
   }
 }
