@@ -174,7 +174,9 @@ export const Home = ({ setTheme }: Props) => {
             <Link
               href={`https://github.com/pradel/twoblocks/commit/${process.env.REACT_APP_COMMIT_REF}`}
             >
-              {process.env.REACT_APP_COMMIT_REF}
+              {process.env.NODE_ENV === 'development'
+                ? 'development'
+                : process.env.REACT_APP_COMMIT_REF}
             </Link>
           </Typography>
         </Grid>
