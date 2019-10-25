@@ -176,7 +176,8 @@ export const Home = ({ setTheme }: Props) => {
             >
               {process.env.NODE_ENV === 'development'
                 ? 'development'
-                : process.env.REACT_APP_COMMIT_REF}
+                : `${process.env.REACT_APP_COMMIT_REF &&
+                    process.env.REACT_APP_COMMIT_REF.substring(0, 6)}...`}
             </Link>
           </Typography>
         </Grid>
