@@ -18,3 +18,5 @@ jobs:
         yarn install --frozen-lockfile
         yarn build
         yarn test
+      env:
+        BUNDLE_ANALYZER_TOKEN:  ${{ secrets.BUNDLE_ANALYZER_TOKEN }}
