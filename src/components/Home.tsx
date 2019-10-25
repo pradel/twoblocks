@@ -171,8 +171,10 @@ export const Home = ({ setTheme }: Props) => {
             <span className={classes.linkDivider}>|</span>
             <Link href="https://github.com/pradel/twoblocks">Github</Link>
             <span className={classes.linkDivider}>|</span>
-            <Link href={`https://github.com/pradel/twoblocks/commit/TODO`}>
-              TODO
+            <Link
+              href={`https://github.com/pradel/twoblocks/commit/${process.env.REACT_APP_COMMIT_REF}`}
+            >
+              {process.env.REACT_APP_COMMIT_REF}
             </Link>
           </Typography>
         </Grid>
