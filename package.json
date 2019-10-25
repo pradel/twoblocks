@@ -7,7 +7,6 @@
     "build": "craco build",
     "test": "echo TODO",
     "testonly": "craco test",
-    "size": "size-limit",
     "analyze": "ANALYZE=true yarn build",
     "prettier": "prettier --write '**/*.{js,ts,tsx}'"
   },

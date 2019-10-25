@@ -9,6 +9,7 @@ import {
   Menu,
   MenuItem,
   Theme,
+  Link,
 } from '@material-ui/core';
 import { SpeedDial, SpeedDialAction, SpeedDialIcon } from '@material-ui/lab';
 import { makeStyles } from '@material-ui/styles';
@@ -48,6 +49,14 @@ const useStyles = makeStyles((theme: Theme) => ({
     maxWidth: '100%',
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(2),
+  },
+  links: {
+    marginTop: theme.spacing(1),
+    marginBottom: theme.spacing(1),
+  },
+  linksDivider: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
   },
 }));
 
@@ -160,6 +169,27 @@ export const Home = ({ setTheme }: Props) => {
             <AccountList file={file} />
           </Grid>
         )}
+        <Grid item xs={12}>
+          <Typography
+            gutterBottom
+            align="center"
+            variant="body2"
+            className={classes.links}
+          >
+            <Link href="https://twitter.com/leopradel">Twitter</Link>
+            <span className={classes.linksDivider}>|</span>
+            <Link href="https://github.com/pradel/twoblocks">Github</Link>
+            <span className={classes.linksDivider}>|</span>
+            <Link
+              href={`https://github.com/pradel/twoblocks/commit/${process.env.REACT_APP_COMMIT_REF}`}
+            >
+              {process.env.NODE_ENV === 'development'
+                ? 'Development'
+                : `${process.env.REACT_APP_COMMIT_REF &&
+                    process.env.REACT_APP_COMMIT_REF.substring(0, 6)}...`}
+            </Link>
+          </Typography>
+        </Grid>
       </Grid>
 
       <AddAccount
