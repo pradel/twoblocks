@@ -38,8 +38,8 @@
   "bundle-analyzer": {
     "files": [
       {
-        "test": "*",
-        "maxSize": "530 KB"
+        "test": "static/js/*.js",
+        "maxSize": "1 B"
       }
     ]
   },
