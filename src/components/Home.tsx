@@ -9,6 +9,7 @@ import {
   Menu,
   MenuItem,
   Theme,
+  Link,
 } from '@material-ui/core';
 import { SpeedDial, SpeedDialAction, SpeedDialIcon } from '@material-ui/lab';
 import { makeStyles } from '@material-ui/styles';
@@ -48,6 +49,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     maxWidth: '100%',
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(2),
+  },
+  linkDivider: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
   },
 }));
 
@@ -160,6 +165,17 @@ export const Home = ({ setTheme }: Props) => {
             <AccountList file={file} />
           </Grid>
         )}
+        <Grid item xs={12}>
+          <Typography gutterBottom align="center">
+            <Link href="https://twitter.com/leopradel">Twitter</Link>
+            <span className={classes.linkDivider}>|</span>
+            <Link href="https://github.com/pradel/twoblocks">Github</Link>
+            <span className={classes.linkDivider}>|</span>
+            <Link href={`https://github.com/pradel/twoblocks/commit/TODO`}>
+              TODO
+            </Link>
+          </Typography>
+        </Grid>
       </Grid>
 
       <AddAccount
