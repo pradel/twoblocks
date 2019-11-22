@@ -2,7 +2,9 @@ import React from 'react';
 import { Theme, Typography, Link } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { BlockstackButton } from 'react-blockstack-button';
+import Fathom from 'fathom-client';
 import { userSession } from '../utils/blockstack';
+import { Goals } from '../utils/fathom';
 
 const useStyles = makeStyles((theme: Theme) => ({
   hero: {
@@ -53,6 +55,7 @@ export const Login = () => {
   const classes = useStyles();
 
   const handleLogin = () => {
+    Fathom.trackGoal(Goals.LOGIN, 0);
     userSession.redirectToSignIn();
   };
 
