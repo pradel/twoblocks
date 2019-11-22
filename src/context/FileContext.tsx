@@ -1,6 +1,8 @@
 import React, { createContext, useReducer, useEffect } from 'react';
+import Fathom from 'fathom-client';
 import { File, getFile, putFile } from '../utils/accounts';
 import { Account } from '../types';
+import { Goals } from '../utils/fathom';
 
 export const FileContext = createContext<{
   file?: File;
@@ -68,6 +70,7 @@ export const FileContextProvider = ({ children }: Props) => {
    */
   const addAccount = async (account: Account) => {
     if (!state.file) return;
+    Fathom.trackGoal(Goals.ADD_NEW_ACCOUNT, 0);
     const file = state.file;
     file.accounts.push(account);
     await putFile(file);
