@@ -12,7 +12,7 @@ export interface File {
  * Initialize the file if some values are missing
  */
 export const getFile = async (): Promise<File> => {
-  let file = await userSession.getFile(fileName);
+  let file = (await userSession.getFile(fileName)) as any;
   if (file) {
     file = JSON.parse(file);
   }
