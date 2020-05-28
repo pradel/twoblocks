@@ -50,7 +50,7 @@ const App = () => {
   const authOptions: AuthOptions = {
     redirectTo: '/',
     appDetails: {
-      name: 'Twoblock',
+      name: 'Twoblocks',
       icon: 'https://twoblocks.leopradel.com/icon-192x192.png',
     },
     userSession,
