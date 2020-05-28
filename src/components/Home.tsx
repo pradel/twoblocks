@@ -119,7 +119,7 @@ export const Home = ({ setTheme }: Props) => {
           <IconButton
             aria-owns={anchorEl ? 'main-menu' : undefined}
             aria-haspopup="true"
-            onClick={event => setAnchorEl(event.currentTarget)}
+            onClick={(event) => setAnchorEl(event.currentTarget)}
             color="inherit"
           >
             <MoreVert fontSize="small" />
@@ -185,8 +185,10 @@ export const Home = ({ setTheme }: Props) => {
             >
               {process.env.NODE_ENV === 'development'
                 ? 'Development'
-                : `${process.env.REACT_APP_COMMIT_REF &&
-                    process.env.REACT_APP_COMMIT_REF.substring(0, 6)}...`}
+                : `${
+                    process.env.REACT_APP_COMMIT_REF &&
+                    process.env.REACT_APP_COMMIT_REF.substring(0, 6)
+                  }...`}
             </Link>
           </Typography>
         </Grid>

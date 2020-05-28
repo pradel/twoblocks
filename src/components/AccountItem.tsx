@@ -106,7 +106,7 @@ export const AccountItem = (props: Props) => {
           <IconButton
             aria-owns={anchorEl ? 'account-menu' : undefined}
             aria-haspopup="true"
-            onClick={event => setAnchorEl(event.currentTarget)}
+            onClick={(event) => setAnchorEl(event.currentTarget)}
           >
             <MoreVert fontSize="small" />
           </IconButton>
