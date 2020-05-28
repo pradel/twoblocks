@@ -58,6 +58,7 @@
     "typeface-roboto": "0.0.75"
   },
   "devDependencies": {
+    "@blockstack/connect": "2.7.2",
     "@bundle-analyzer/webpack-plugin": "0.5.1",
     "@craco/craco": "5.6.4",
     "@types/jest": "25.2.3",
