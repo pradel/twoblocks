@@ -12,7 +12,15 @@ export interface File {
  * Initialize the file if some values are missing
  */
 export const getFile = async (): Promise<File> => {
-  let file = (await userSession.getFile(fileName)) as any;
+  let file;
+  try {
+    file = (await userSession.getFile(fileName)) as any;
+  } catch (error) {
+    // If 404 it means user is using the app for the first time
+    if (error.code !== 'does_not_exist') {
+      throw error;
+    }
+  }
   if (file) {
     file = JSON.parse(file);
   }
