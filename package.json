@@ -38,7 +38,7 @@
     "files": [
       {
         "test": "static/js/*.js",
-        "maxSize": "530 KB"
+        "maxSize": "550 KB"
       }
     ]
   },
