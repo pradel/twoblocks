@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { authenticator } from '@otplib/preset-browser';
 import { File } from '../utils/accounts';
 import { AccountItem } from './AccountItem';
 
@@ -11,7 +12,7 @@ export const AccountList = (props: Props) => {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setSeconds(otplib.authenticator.timeRemaining()); // eslint-disable-line
+      setSeconds(authenticator.timeRemaining()); // eslint-disable-line
     }, 1000);
 
     return function cleanup() {

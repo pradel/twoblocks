@@ -160,7 +160,7 @@ export const EditAccount = ({
                     selectMenu: classes.selectMenuIcon,
                   }}
                 >
-                  {Object.keys(icons).map(key => (
+                  {Object.keys(icons).map((key) => (
                     <MenuItem key={key} value={key}>
                       <img
                         width="25"

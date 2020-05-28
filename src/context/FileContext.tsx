@@ -1,5 +1,5 @@
 import React, { createContext, useReducer, useEffect } from 'react';
-import Fathom from 'fathom-client';
+import * as Fathom from 'fathom-client';
 import { File, getFile, putFile } from '../utils/accounts';
 import { Account } from '../types';
 import { Goals } from '../utils/fathom';

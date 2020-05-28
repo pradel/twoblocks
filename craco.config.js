@@ -3,7 +3,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
 const BundleAnalyzerPluginReporter = require('@bundle-analyzer/webpack-plugin');
 
 module.exports = {
-  devServer: devServerConfig => {
+  devServer: (devServerConfig) => {
     /**
      * Needed to allow blockstack to read the manifest.json file when we login the user
      */
@@ -14,7 +14,7 @@ module.exports = {
     return devServerConfig;
   },
   webpack: {
-    configure: webpackConfig => {
+    configure: (webpackConfig) => {
       if (process.env.ANALYZE) {
         webpackConfig.plugins.push(new BundleAnalyzerPlugin());
       }
