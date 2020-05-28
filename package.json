@@ -48,7 +48,7 @@
     "@material-ui/lab": "4.0.0-alpha.54",
     "@material-ui/styles": "4.10.0",
     "blockstack": "19.3.0",
-    "fathom-client": "1.0.0",
+    "fathom-client": "2.0.3",
     "otplib": "11.0.1",
     "query-string": "6.12.1",
     "react": "16.13.1",

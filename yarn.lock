@@ -5616,10 +5616,10 @@ fast-levenshtein@~2.0.4, fast-levenshtein@~2.0.6:
   resolved "https://registry.yarnpkg.com/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz#3d8a5c66883a16a30ca8643e851f19baa7797917"
   integrity sha1-PYpcZog6FqMMqGQ+hR8Zuqd5eRc=
 
-fathom-client@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/fathom-client/-/fathom-client-1.0.0.tgz#de3127a9555081983654375789e665cc2e938c74"
-  integrity sha512-YUJJHGOm9KOIjoZDnQeCCPOKu28t6k+hPD49rGAV1/HTknAIDb8J2u5foPg2JgsWcB4ORvJjN/7xSTUPvRK4/Q==
+fathom-client@2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/fathom-client/-/fathom-client-2.0.3.tgz#1a778aa11009f0f1ed99c04f5137c21e9e021658"
+  integrity sha512-qwTn8LLzuXzsoqXMZGj6YN/mWF/vCRIo+ibD34kweAkKmne8nCELXf3ORUwegmqdzvEVtEZpXH9P9OFunnO07Q==
 
 faye-websocket@^0.10.0:
   version "0.10.0"

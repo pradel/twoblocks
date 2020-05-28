@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { ThemeProvider } from '@material-ui/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
-import Fathom from 'fathom-client';
+import * as Fathom from 'fathom-client';
 import { Login } from './components/Login';
 import { Home } from './components/Home';
 import { Loader } from './components/Loader';
@@ -15,8 +15,7 @@ import { config } from './config';
 const FathomTrack = () => {
   useEffect(() => {
     if (config.fathomSiteId) {
-      Fathom.load();
-      Fathom.setSiteId(config.fathomSiteId);
+      Fathom.load(config.fathomSiteId);
       Fathom.trackPageview();
     }
   }, []);
