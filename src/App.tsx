@@ -81,9 +81,7 @@ const App = () => {
         <ThemeContext.Provider value={theme}>
           <CssBaseline />
           <FathomTrack />
-          {!loggingIn && !loggedIn && (
-            <Login />
-          )}
+          {!loggingIn && !loggedIn && <Login />}
           {!loggingIn && loggedIn && (
             <FileContextProvider>
               <Home setTheme={handleChangeTheme} />
