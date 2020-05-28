@@ -1,3 +1,3 @@
 /// <reference types="react-scripts" />
 
-declare var otplib: otplib;
+declare module '@otplib/preset-browser';

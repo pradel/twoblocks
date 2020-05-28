@@ -8,6 +8,7 @@ import {
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { MoreVert } from '@material-ui/icons';
+import { authenticator } from '@otplib/preset-browser';
 import { Account } from '../types';
 import { EditAccount } from './EditAccount';
 import { DeleteAccount } from './DeleteAccount';
@@ -71,7 +72,7 @@ export const AccountItem = (props: Props) => {
 
   let code;
   try {
-    code = otplib.authenticator.generate(props.account.secret); // eslint-disable-line
+    code = authenticator.generate(props.account.secret); // eslint-disable-line
     // Insert a space in the middle of the code for better readability
     code = [code.slice(0, 3), ' ', code.slice(3)].join('');
   } catch (error) {
