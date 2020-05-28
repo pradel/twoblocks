@@ -67,7 +67,7 @@ export const AddAccount = ({ open, onClose }: Props) => {
   const [values, setValues] = useState({
     name: '',
     secret: '',
-    icon: undefined,
+    icon: '',
   });
   const [errors, setErrors] = useState({
     name: false,
@@ -79,7 +79,7 @@ export const AddAccount = ({ open, onClose }: Props) => {
     setValues({
       name: '',
       secret: '',
-      icon: undefined,
+      icon: '',
     });
     setErrors({ name: false, secret: false });
     setLoading(false);
@@ -171,7 +171,7 @@ export const AddAccount = ({ open, onClose }: Props) => {
                     selectMenu: classes.selectMenuIcon,
                   }}
                 >
-                  {Object.keys(icons).map(key => (
+                  {Object.keys(icons).map((key) => (
                     <MenuItem key={key} value={key}>
                       <img
                         width="25"
