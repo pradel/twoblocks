@@ -2637,7 +2637,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:14.0.5":
+"@types/node@npm:*":
   version: 14.0.5
   resolution: "@types/node@npm:14.0.5"
   checksum: 38a9f9b66c2657b4ba520e40073369d4a33438dd45f9c001d98a7cda40e88a5ea28485c320fa00fc706b5473b549cacc9a8b9796e4d69681c032619e12f73f7d
@@ -2655,6 +2655,13 @@ __metadata:
   version: 11.11.6
   resolution: "@types/node@npm:11.11.6"
   checksum: 2b64bfc2344f60fdcf3baea2f9f2e065189cee3a6144d3dbdcb32cb6728dd64933808e2da8bd4d69033f04510f7de1397c08d54d8f89d505b3a957b24dcc583f
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:14.0.13":
+  version: 14.0.13
+  resolution: "@types/node@npm:14.0.13"
+  checksum: 2f2be6f7f1a916b0f4d58949bd934a8e41c0dcb15c493c17c3eaf78da3065c09650030f0dfe2e8c11880d597ee001d7cd925129218037fdb4432e80f7d895673
   languageName: node
   linkType: hard
 
@@ -9907,9 +9914,9 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:10.2.10":
-  version: 10.2.10
-  resolution: "lint-staged@npm:10.2.10"
+"lint-staged@npm:10.2.11":
+  version: 10.2.11
+  resolution: "lint-staged@npm:10.2.11"
   dependencies:
     chalk: ^4.0.0
     cli-truncate: 2.1.0
@@ -9928,7 +9935,7 @@ fsevents@~2.1.2:
     stringify-object: ^3.3.0
   bin:
     lint-staged: bin/lint-staged.js
-  checksum: 2d31c76675aee3edd037a75153f9c7cf125e20bf89ea922b5cce420d9fc231ddecc41135b7210fbba5d516f54d15b202eb2ce790831da9db34efd5639fd7e37b
+  checksum: 0d1c408dfea1173b6a691b223228db5a617365bd3ee6b7151fc3cd0b69ecbc1a48ced6675163baa67851c1492ab9025490932d9bf0597dc496638c5a1b4b68ab
   languageName: node
   linkType: hard
 
@@ -15391,7 +15398,7 @@ resolve@1.15.0:
     "@otplib/preset-browser": 12.0.1
     "@sentry/browser": 5.17.0
     "@types/jest": 25.2.3
-    "@types/node": 14.0.5
+    "@types/node": 14.0.13
     "@types/query-string": 6.3.0
     "@types/react": 16.9.35
     "@types/react-dom": 16.9.8
@@ -15399,7 +15406,7 @@ resolve@1.15.0:
     blockstack: 21.0.0
     fathom-client: 3.0.0
     husky: 4.2.5
-    lint-staged: 10.2.10
+    lint-staged: 10.2.11
     prettier: 2.0.5
     query-string: 6.12.1
     react: 16.13.1
