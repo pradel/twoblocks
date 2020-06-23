@@ -4,5 +4,5 @@
 
 [build.environment]
   NODE_VERSION = "12"
-  YARN_VERSION = "1.22.4"
-  YARN_FLAGS = "--pure-lockfile"
+  YARN_VERSION = "1.22"
+  YARN_FLAGS = "--immutable"

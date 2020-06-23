@@ -4,19 +4,19 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js 12.x
-      uses: actions/setup-node@v1
-      with:
-        node-version: 12.x
-    - name: yarn install, build, and test
-      run: |
-        yarn install --immutable
-        yarn build
-        yarn test
-      env:
-        BUNDLE_ANALYZER_TOKEN:  ${{ secrets.BUNDLE_ANALYZER_TOKEN }}
+      - uses: actions/checkout@v2
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Dependencies
+        run: yarn install --immutable
+      - name: Build
+        run: yarn compile
+        env:
+          BUNDLE_ANALYZER_TOKEN: ${{ secrets.BUNDLE_ANALYZER_TOKEN }}
+      - name: Run tests
+        run: yarn test
