@@ -38,20 +38,21 @@
     "files": [
       {
         "test": "static/js/*.js",
-        "maxSize": "540 KB"
+        "maxSize": "650 KB"
       }
     ]
   },
   "dependencies": {
-    "@material-ui/core": "4.10.0",
+    "@blockstack/stacks-transactions": "0.6.0",
+    "@material-ui/core": "4.11.0",
     "@material-ui/icons": "4.9.1",
-    "@material-ui/lab": "4.0.0-alpha.54",
+    "@material-ui/lab": "4.0.0-alpha.56",
     "@material-ui/styles": "4.10.0",
     "@otplib/preset-browser": "12.0.1",
-    "@sentry/browser": "5.17.0",
-    "blockstack": "21.0.0",
+    "@sentry/browser": "5.20.1",
+    "blockstack": "21.1.0",
     "fathom-client": "3.0.0",
-    "query-string": "6.12.1",
+    "query-string": "6.13.1",
     "react": "16.13.1",
     "react-blockstack-button": "0.1.0",
     "react-dom": "16.13.1",
@@ -60,20 +61,20 @@
     "typeface-roboto": "0.0.75"
   },
   "devDependencies": {
-    "@blockstack/connect": "2.7.5",
+    "@blockstack/connect": "2.10.5",
     "@bundle-analyzer/webpack-plugin": "0.5.1",
     "@craco/craco": "5.6.4",
     "@types/jest": "25.2.3",
-    "@types/node": "14.0.13",
+    "@types/node": "14.0.27",
     "@types/query-string": "6.3.0",
-    "@types/react": "16.9.35",
+    "@types/react": "16.9.44",
     "@types/react-dom": "16.9.8",
     "@types/react-qr-reader": "2.1.3",
     "husky": "4.2.5",
     "lint-staged": "10.2.11",
     "prettier": "2.0.5",
     "react-scripts": "3.4.1",
-    "typescript": "3.9.5",
+    "typescript": "3.9.7",
     "webpack-bundle-analyzer": "3.8.0"
   }
 }
