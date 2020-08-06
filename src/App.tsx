@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import * as Sentry from '@sentry/react';
 import { ThemeProvider } from '@material-ui/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
@@ -94,4 +95,16 @@ const App = () => {
   );
 };
 
-export default App;
+const FallbackComponent = () => {
+  return <div>An error has occurred</div>;
+};
+
+const AppWithError = () => {
+  return (
+    <Sentry.ErrorBoundary fallback={FallbackComponent} showDialog>
+      <App />
+    </Sentry.ErrorBoundary>
+  );
+};
+
+export default AppWithError;

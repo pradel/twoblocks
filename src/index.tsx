@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import * as Sentry from '@sentry/browser';
+import * as Sentry from '@sentry/react';
 import App from './App';
 import 'typeface-roboto';
 import { config } from './config';

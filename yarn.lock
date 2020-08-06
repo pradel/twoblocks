@@ -2248,6 +2248,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sentry/react@npm:5.20.1":
+  version: 5.20.1
+  resolution: "@sentry/react@npm:5.20.1"
+  dependencies:
+    "@sentry/browser": 5.20.1
+    "@sentry/minimal": 5.20.1
+    "@sentry/types": 5.20.1
+    "@sentry/utils": 5.20.1
+    hoist-non-react-statics: ^3.3.2
+    tslib: ^1.9.3
+  peerDependencies:
+    react: 15.x || 16.x
+    react-dom: 15.x || 16.x
+  checksum: 63d88f96a47cec2753768cc587ee2c9d3783da349247c887a5ca582a6299674683248940ad7083a2f00c3ef496effa2b64163821f9419135d29cef48295d9dbb
+  languageName: node
+  linkType: hard
+
 "@sentry/types@npm:5.20.1":
   version: 5.20.1
   resolution: "@sentry/types@npm:5.20.1"
@@ -15479,6 +15496,7 @@ resolve@1.1.7:
     "@material-ui/styles": 4.10.0
     "@otplib/preset-browser": 12.0.1
     "@sentry/browser": 5.20.1
+    "@sentry/react": 5.20.1
     "@types/jest": 25.2.3
     "@types/node": 14.0.27
     "@types/query-string": 6.3.0

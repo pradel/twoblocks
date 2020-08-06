@@ -50,6 +50,7 @@
     "@material-ui/styles": "4.10.0",
     "@otplib/preset-browser": "12.0.1",
     "@sentry/browser": "5.20.1",
+    "@sentry/react": "5.20.1",
     "blockstack": "21.1.0",
     "fathom-client": "3.0.0",
     "query-string": "6.13.1",
