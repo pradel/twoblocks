@@ -2563,6 +2563,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@swc/core-linux-musl@npm:*":
+  version: 1.2.36
+  resolution: "@swc/core-linux-musl@npm:1.2.36"
+  checksum: 55c6584ea6f47e17cf2628bd64804b68fdb1ee05da413e56d7a81ea5b7337a81a3248ac23c0a10294db8690be8a840d6a2f93b19be4737f7d7d27d87c4c7c752
+  languageName: node
+  linkType: hard
+
 "@swc/core-linux@npm:^1.2.36":
   version: 1.2.36
   resolution: "@swc/core-linux@npm:1.2.36"
