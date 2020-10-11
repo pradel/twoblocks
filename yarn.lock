@@ -1549,11 +1549,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@blockstack/connect@npm:2.12.4":
-  version: 2.12.4
-  resolution: "@blockstack/connect@npm:2.12.4"
+"@blockstack/connect@npm:2.12.7":
+  version: 2.12.7
+  resolution: "@blockstack/connect@npm:2.12.7"
   dependencies:
-    "@blockstack/ui": ^2.12.10
+    "@blockstack/ui": ^2.12.13
     jsontokens: ^3.0.0
     preact: ^10.4.0
     styled-components: ^5.1.0
@@ -1566,7 +1566,7 @@ __metadata:
     styled-components: ^5.1.0
     use-events: ^1.4.1
     use-onclickoutside: ^0.3.1
-  checksum: 6f1e72eb4211c1c09c4ad77b0c67b9ac9665883c7c002cce85bbc32f7ea9560712b37cfadaaf8e9436bfaa8d53c572a221285bf64cfb3e4c4f587e0debe0b72b
+  checksum: 24f3602072d587f9e915cf81cee3a5aaf79ae84b3912ec8048dda4dad58b969bcaac0c94e06531ba50f9cd22411fcb243843fc7abbced2eb0e731ead0986f5cb
   languageName: node
   linkType: hard
 
@@ -1591,7 +1591,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@blockstack/ui@npm:^2.12.10":
+"@blockstack/ui@npm:^2.12.13":
   version: 2.13.0
   resolution: "@blockstack/ui@npm:2.13.0"
   dependencies:
@@ -1663,9 +1663,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@craco/craco@npm:5.6.4":
-  version: 5.6.4
-  resolution: "@craco/craco@npm:5.6.4"
+"@craco/craco@npm:5.7.0":
+  version: 5.7.0
+  resolution: "@craco/craco@npm:5.7.0"
   dependencies:
     cross-spawn: ^7.0.0
     lodash: ^4.17.15
@@ -1673,8 +1673,8 @@ __metadata:
   peerDependencies:
     react-scripts: "*"
   bin:
-    craco: ./bin/craco.js
-  checksum: 30cf931da3b8c4c91f2b5788f057027fa6a6ed250cc548bc237e8e8f1b91f1667785bb8015ca03d9e40d9a9ff0df6acdd7fd9ec61ec67d0e0d707ad41f8b57fa
+    craco: bin/craco.js
+  checksum: 558b8641e7e1c322c041ceab00b63201b7fb23d81e99cadba9c6de81261dab9e4a6cf76684dedc69d4a5c70ced18f1f4f1dd229b51efc8bbab73d05f92001563
   languageName: node
   linkType: hard
 
@@ -2199,84 +2199,84 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/browser@npm:5.24.2":
-  version: 5.24.2
-  resolution: "@sentry/browser@npm:5.24.2"
+"@sentry/browser@npm:5.25.0":
+  version: 5.25.0
+  resolution: "@sentry/browser@npm:5.25.0"
   dependencies:
-    "@sentry/core": 5.24.2
-    "@sentry/types": 5.24.2
-    "@sentry/utils": 5.24.2
+    "@sentry/core": 5.25.0
+    "@sentry/types": 5.25.0
+    "@sentry/utils": 5.25.0
     tslib: ^1.9.3
-  checksum: d9dfd4db377618c93aa300b48242c74ab04e3c51f63da48298e43af8cc03372b02f714b11fa3c1077a2dca89cd56dd67703afbf1388082994f1573748fa0643d
+  checksum: 62104c86cb1333e1d28dc8aa75b74171505ce5d755946182de3999d3ee7ec30373c37c71adbe3c41d0445e960b8a53bc70e0fa07b49a9638e60e8fb7929fc889
   languageName: node
   linkType: hard
 
-"@sentry/core@npm:5.24.2":
-  version: 5.24.2
-  resolution: "@sentry/core@npm:5.24.2"
+"@sentry/core@npm:5.25.0":
+  version: 5.25.0
+  resolution: "@sentry/core@npm:5.25.0"
   dependencies:
-    "@sentry/hub": 5.24.2
-    "@sentry/minimal": 5.24.2
-    "@sentry/types": 5.24.2
-    "@sentry/utils": 5.24.2
+    "@sentry/hub": 5.25.0
+    "@sentry/minimal": 5.25.0
+    "@sentry/types": 5.25.0
+    "@sentry/utils": 5.25.0
     tslib: ^1.9.3
-  checksum: 41e1ac672341c96afd42098169f87433e5e9302fce2912d36f6914e133e26d22732bfe1e8612d23dfe8c067af2d2e66bd759ee4eebfe317cf6156ae0aa4e9747
+  checksum: 08c148b62d575640d994cfbaff0631d5978eadf67a756d5c7fd0bcb861e8f0d72ae8c32f41d51bf6aea3159f100a1a8703845c3f67b3e20c762d8001f19a56dd
   languageName: node
   linkType: hard
 
-"@sentry/hub@npm:5.24.2":
-  version: 5.24.2
-  resolution: "@sentry/hub@npm:5.24.2"
+"@sentry/hub@npm:5.25.0":
+  version: 5.25.0
+  resolution: "@sentry/hub@npm:5.25.0"
   dependencies:
-    "@sentry/types": 5.24.2
-    "@sentry/utils": 5.24.2
+    "@sentry/types": 5.25.0
+    "@sentry/utils": 5.25.0
     tslib: ^1.9.3
-  checksum: 162e355aee699767492f366d85c678c6d9e824355a331c13d661eb3573e1d272e69895f976e01c0213341fc7b1d9c7b41d0ff6cc39e2146039f4441b5710a988
+  checksum: ed5e9401b72d0740c6d80c33d36ef6c671dbcdd838330a7de045cc7751fd895c7feed293531e3cd5102365a3a679234204161462a94f6c3a3f5deb0b0d55c3bb
   languageName: node
   linkType: hard
 
-"@sentry/minimal@npm:5.24.2":
-  version: 5.24.2
-  resolution: "@sentry/minimal@npm:5.24.2"
+"@sentry/minimal@npm:5.25.0":
+  version: 5.25.0
+  resolution: "@sentry/minimal@npm:5.25.0"
   dependencies:
-    "@sentry/hub": 5.24.2
-    "@sentry/types": 5.24.2
+    "@sentry/hub": 5.25.0
+    "@sentry/types": 5.25.0
     tslib: ^1.9.3
-  checksum: 56c1efd06a6fd8d3f9d6455234ea987c8db776b7b660c6f758221f9dd586b4970386a20b8e5c5c210ca88ae95f4b0568d31fff74062c665d7fa78640dff67761
+  checksum: 06ff9df69d409c7761db99ae28bc1d9018656b906bc482cdf2f644d8a33cc073620a5e0efc188c2689849e0385c139086c9daf3ab018e93258f40ba5d450d571
   languageName: node
   linkType: hard
 
-"@sentry/react@npm:5.24.2":
-  version: 5.24.2
-  resolution: "@sentry/react@npm:5.24.2"
+"@sentry/react@npm:5.25.0":
+  version: 5.25.0
+  resolution: "@sentry/react@npm:5.25.0"
   dependencies:
-    "@sentry/browser": 5.24.2
-    "@sentry/minimal": 5.24.2
-    "@sentry/types": 5.24.2
-    "@sentry/utils": 5.24.2
+    "@sentry/browser": 5.25.0
+    "@sentry/minimal": 5.25.0
+    "@sentry/types": 5.25.0
+    "@sentry/utils": 5.25.0
     hoist-non-react-statics: ^3.3.2
     tslib: ^1.9.3
   peerDependencies:
     react: 15.x || 16.x
     react-dom: 15.x || 16.x
-  checksum: 9aa5e8b5dfeb55264f1d69690a30e3912e6da04efd274f70bad94b3491d67c7e71586beae2521b17efcc1524dd311542062e35e7f56480cbb0905cbaea82e394
+  checksum: f38537e25bf02aba30ee13e10c9ddba28157dc06fd729493ca9585b2c3d2bd1a753ec8b7c2ac68e04fec22b0a5db26ed20d59d364830a800280c883f3cd999f6
   languageName: node
   linkType: hard
 
-"@sentry/types@npm:5.24.2":
-  version: 5.24.2
-  resolution: "@sentry/types@npm:5.24.2"
-  checksum: cdf8a8ea2497968daf03ab5e928423fb67b3b2cd6a3ff8b03c098c3acfdb3dd23a21fe148a7672da04fc4580af19ca4c9ed49f354d743137e739a5354047ef05
+"@sentry/types@npm:5.25.0":
+  version: 5.25.0
+  resolution: "@sentry/types@npm:5.25.0"
+  checksum: ba904711baa67998f608be722fc3d59365e58630fed9537e79a41e06f1cbc4caab73e6a42a5f68bfe003adc1422350ad1a6b1e36f4ea55dbee875abcbad14fec
   languageName: node
   linkType: hard
 
-"@sentry/utils@npm:5.24.2":
-  version: 5.24.2
-  resolution: "@sentry/utils@npm:5.24.2"
+"@sentry/utils@npm:5.25.0":
+  version: 5.25.0
+  resolution: "@sentry/utils@npm:5.25.0"
   dependencies:
-    "@sentry/types": 5.24.2
+    "@sentry/types": 5.25.0
     tslib: ^1.9.3
-  checksum: b4ffb012f448ff5e0f5fa426207eae26f8e22d4a245f5ec6e7cfe6261b1ac85439027c25914a2bd665801da6c32cfe0a5f0039cb4cc0b7acc2aee9910f0f3abe
+  checksum: bc4ba4f2e41e45f0b9c020837fade3b707b46fa107b8cf80d5f57e0af45d562034e357e626a4ed0ce6b026216a8a6d744feeb35f82d59d252ed5c86194fe0b4d
   languageName: node
   linkType: hard
 
@@ -2727,10 +2727,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:14.11.2":
-  version: 14.11.2
-  resolution: "@types/node@npm:14.11.2"
-  checksum: 3badcce3991cd8487b549b2541c9a9809f77ded06a2846dd9c73948d12a442290b31abef2d4b0304cc7e30539614ae82ff3b70d93a4b9a82e19128b3d17a9e0f
+"@types/node@npm:14.11.8":
+  version: 14.11.8
+  resolution: "@types/node@npm:14.11.8"
+  checksum: 5139c07ba76d791b4930fa02ec746656dacf78b43c431d56a7514a8285962d0511bf356bee870968a541033c14967b58f7b2a58c48ac81646ce4eb28d2ff433d
   languageName: node
   linkType: hard
 
@@ -2833,13 +2833,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:16.9.49":
-  version: 16.9.49
-  resolution: "@types/react@npm:16.9.49"
+"@types/react@npm:16.9.51":
+  version: 16.9.51
+  resolution: "@types/react@npm:16.9.51"
   dependencies:
     "@types/prop-types": "*"
     csstype: ^3.0.2
-  checksum: cf5dabe1e9c893a19a338002ac4bf5a86c9bc3cd88eb07aece54e6d2e5af35debe2a8c72d211ad9133391543ce115219cd7c7f2a6f649b81caf4548e1cc99061
+  checksum: 2244f20526c284e3d81ff50422222fce609034f4a1e29ea71733ab9e2c2c9894f062e4a270e327d5a81d11b02a6de24e418babcfb039a7139549b21179fc1942
   languageName: node
   linkType: hard
 
@@ -5407,6 +5407,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"craco-esbuild@npm:0.0.1":
+  version: 0.0.1
+  resolution: "craco-esbuild@npm:0.0.1"
+  dependencies:
+    esbuild-loader: ^2.4.0
+  peerDependencies:
+    "@craco/craco": ^5.5.0
+    react-scripts: ^3.3.0
+  checksum: a8a07c2a53401e70abe81cd3d074241c9d33cd91b8483c8532ae8ca080545c183ce857c199c8f393ffd83ab69a61176b90a395e6a3aa2c4cb132ad515c8ffb9f
+  languageName: node
+  linkType: hard
+
 "create-ecdh@npm:^4.0.0":
   version: 4.0.4
   resolution: "create-ecdh@npm:4.0.4"
@@ -6582,6 +6594,28 @@ __metadata:
     d: ^1.0.1
     ext: ^1.1.2
   checksum: 0915d72de8760b56b69ca4360276123a4f61de5a3172fe340ce9288271cf48bcebe3ee46ca8ee0f2fd73206bbbefa7c4a40a6673d278a87c97d3a155de778931
+  languageName: node
+  linkType: hard
+
+"esbuild-loader@npm:^2.4.0":
+  version: 2.4.0
+  resolution: "esbuild-loader@npm:2.4.0"
+  dependencies:
+    esbuild: ^0.7.3
+    loader-utils: ^2.0.0
+    webpack-sources: ^2.0.0
+  peerDependencies:
+    webpack: ^4.40.0 || ^5.0.0
+  checksum: c75024fa1820666642e9472d721df968f64dac4bf90725ebad7defbec0f14b75906ca7ee77c1b21a7b8e83f4234067264491c5c2149185cc42cc34fa87b46078
+  languageName: node
+  linkType: hard
+
+"esbuild@npm:^0.7.3":
+  version: 0.7.14
+  resolution: "esbuild@npm:0.7.14"
+  bin:
+    esbuild: bin/esbuild
+  checksum: 7704ada3a36d34c14e68b308628db2a2d765857a3b4b917ed39108b2a59986de68705e5e9d06a03915ac3d58845988dceaf94e5a6bea229fe25af330caef0b10
   languageName: node
   linkType: hard
 
@@ -10144,6 +10178,17 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"loader-utils@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "loader-utils@npm:2.0.0"
+  dependencies:
+    big.js: ^5.2.2
+    emojis-list: ^3.0.0
+    json5: ^2.1.2
+  checksum: a1c2e48781e1501e126a32c39bc1fb1a7e2f02bd99e5aeb8853ddaf3c121fffefcc4579367f97ca6890b58369e571af1c9ec82e4e20db238d560ab359ff25c33
+  languageName: node
+  linkType: hard
+
 "locate-path@npm:^2.0.0":
   version: 2.0.0
   resolution: "locate-path@npm:2.0.0"
@@ -13010,14 +13055,14 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"query-string@npm:6.13.2":
-  version: 6.13.2
-  resolution: "query-string@npm:6.13.2"
+"query-string@npm:6.13.5":
+  version: 6.13.5
+  resolution: "query-string@npm:6.13.5"
   dependencies:
     decode-uri-component: ^0.2.0
     split-on-first: ^1.0.0
     strict-uri-encode: ^2.0.0
-  checksum: a93a866ccc68f58b14cb8f681bc93b94aa3c98433d987ae51295d0ffc5bcb24e812fbc66e81174d60d5e8e0e94e72ab1be8ec5c29f578a82ce0806018f74601e
+  checksum: a60b70e2612624247e67dd693b2812b3acb3cf2846c7fce369924e9ad4f63a673e2c0bfd6523d189454e93b818ba0ff04886752d4dc664c6402bc1bf69753c67
   languageName: node
   linkType: hard
 
@@ -14511,7 +14556,7 @@ resolve@1.1.7:
   languageName: node
   linkType: hard
 
-"source-list-map@npm:^2.0.0":
+"source-list-map@npm:^2.0.0, source-list-map@npm:^2.0.1":
   version: 2.0.1
   resolution: "source-list-map@npm:2.0.1"
   checksum: d8d45f29987d00d995ccda308dcc78b710031a9958fdb5d26674d32220c952eb7a8562062638d91896628ae4eef30e1cd112a6a547563dfda0b013024c2a9bf7
@@ -15497,29 +15542,30 @@ resolve@1.1.7:
   version: 0.0.0-use.local
   resolution: "twoblocks@workspace:."
   dependencies:
-    "@blockstack/connect": 2.12.4
+    "@blockstack/connect": 2.12.7
     "@blockstack/stacks-transactions": 0.7.0
     "@bundle-analyzer/webpack-plugin": 0.5.1
-    "@craco/craco": 5.6.4
+    "@craco/craco": 5.7.0
     "@material-ui/core": 4.11.0
     "@material-ui/icons": 4.9.1
     "@material-ui/lab": 4.0.0-alpha.56
     "@material-ui/styles": 4.10.0
     "@otplib/preset-browser": 12.0.1
-    "@sentry/browser": 5.24.2
-    "@sentry/react": 5.24.2
+    "@sentry/browser": 5.25.0
+    "@sentry/react": 5.25.0
     "@types/jest": 26.0.14
-    "@types/node": 14.11.2
+    "@types/node": 14.11.8
     "@types/query-string": 6.3.0
-    "@types/react": 16.9.49
+    "@types/react": 16.9.51
     "@types/react-dom": 16.9.8
     "@types/react-qr-reader": 2.1.3
     blockstack: 21.1.1
+    craco-esbuild: 0.0.1
     fathom-client: 3.0.0
     husky: 4.3.0
     lint-staged: 10.4.0
     prettier: 2.1.2
-    query-string: 6.13.2
+    query-string: 6.13.5
     react: 16.13.1
     react-blockstack-button: 0.1.0
     react-dom: 16.13.1
@@ -16184,6 +16230,16 @@ typescript@4.0.3:
     source-list-map: ^2.0.0
     source-map: ~0.6.1
   checksum: 2a753b36adf0ddd4dadf6ff375824108a918d180c4ea5383b377526f543e6db0c1ecd40b4154bae8e94c4b209b7814d764879691a468fe230ef9eb32b27fdde4
+  languageName: node
+  linkType: hard
+
+"webpack-sources@npm:^2.0.0":
+  version: 2.0.1
+  resolution: "webpack-sources@npm:2.0.1"
+  dependencies:
+    source-list-map: ^2.0.1
+    source-map: ^0.6.1
+  checksum: fde296d7e3603afab2d832dec6b0d76ad4dcf2f2b9b0a06da92bdde7004cf62fad685cdda84a57abe5c97f975b529cc9a35e7a419c2c9b56074bcbdcad15036a
   languageName: node
   linkType: hard
 

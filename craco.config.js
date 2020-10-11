@@ -1,6 +1,7 @@
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
   .BundleAnalyzerPlugin;
 const BundleAnalyzerPluginReporter = require('@bundle-analyzer/webpack-plugin');
+const CracoEsbuildPlugin = require('craco-esbuild');
 
 module.exports = {
   devServer: (devServerConfig) => {
@@ -29,4 +30,9 @@ module.exports = {
       return webpackConfig;
     },
   },
+  plugins: [
+    {
+      plugin: CracoEsbuildPlugin,
+    },
+  ],
 };
