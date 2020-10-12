@@ -2898,13 +2898,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:16.9.51":
-  version: 16.9.51
-  resolution: "@types/react@npm:16.9.51"
+"@types/react@npm:16.9.52":
+  version: 16.9.52
+  resolution: "@types/react@npm:16.9.52"
   dependencies:
     "@types/prop-types": "*"
     csstype: ^3.0.2
-  checksum: 2244f20526c284e3d81ff50422222fce609034f4a1e29ea71733ab9e2c2c9894f062e4a270e327d5a81d11b02a6de24e418babcfb039a7139549b21179fc1942
+  checksum: 5e352e28b7a5ee6104a1ddddb7585ce50f88c5fca78f2edb73cc6df897ab3efa4404111052b643782d130755b8657494f3f5324b1eba4644b4a36fea34fec6fb
   languageName: node
   linkType: hard
 
@@ -15621,7 +15621,7 @@ resolve@1.1.7:
     "@types/jest": 26.0.14
     "@types/node": 14.11.8
     "@types/query-string": 6.3.0
-    "@types/react": 16.9.51
+    "@types/react": 16.9.52
     "@types/react-dom": 16.9.8
     "@types/react-qr-reader": 2.1.3
     blockstack: 21.1.1
