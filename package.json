@@ -55,7 +55,6 @@
     "fathom-client": "3.0.0",
     "query-string": "6.13.5",
     "react": "16.13.1",
-    "react-blockstack-button": "0.1.0",
     "react-dom": "16.13.1",
     "react-is": "16.13.1",
     "react-qr-reader": "2.2.1",

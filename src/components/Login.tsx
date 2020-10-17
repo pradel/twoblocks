@@ -1,7 +1,6 @@
 import React from 'react';
-import { Theme, Typography, Link } from '@material-ui/core';
+import { Theme, Typography, Link, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
-import { BlockstackButton } from 'react-blockstack-button';
 import * as Fathom from 'fathom-client';
 import { useConnect } from '@blockstack/connect';
 import { Goals } from '../utils/fathom';
@@ -33,10 +32,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   brandContent: {
     marginBottom: theme.spacing(2),
-  },
-  loginButton: {
-    cursor: 'pointer',
-    display: 'flex',
   },
   screen: {
     flex: 1,
@@ -87,10 +82,9 @@ export const Login = () => {
               </Link>
               . Protect yourself online!
             </Typography>
-            <BlockstackButton
-              onClick={handleLogin}
-              buttonProps={{ className: classes.loginButton }}
-            />
+            <Button variant="contained" color="primary" onClick={handleLogin}>
+              Get started
+            </Button>
           </div>
           <div className={classes.screen}>
             <img

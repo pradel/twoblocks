@@ -13127,15 +13127,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-blockstack-button@npm:0.1.0":
-  version: 0.1.0
-  resolution: "react-blockstack-button@npm:0.1.0"
-  peerDependencies:
-    react: ^16.8.0
-  checksum: 63819ec2acb12b679b8f4fcf7d70b11776ea62b167ab3cd2f4cd23d50c583ea54b3388554b5c58d64cc8ccc3e0168aaa8502ae92e5f5e93e7d1ddefc9efeab7e
-  languageName: node
-  linkType: hard
-
 "react-dev-utils@npm:^10.2.1":
   version: 10.2.1
   resolution: "react-dev-utils@npm:10.2.1"
@@ -15521,7 +15512,6 @@ resolve@1.1.7:
     prettier: 2.1.2
     query-string: 6.13.5
     react: 16.13.1
-    react-blockstack-button: 0.1.0
     react-dom: 16.13.1
     react-is: 16.13.1
     react-qr-reader: 2.2.1
