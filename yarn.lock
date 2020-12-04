@@ -15955,7 +15955,6 @@ resolve@1.18.1:
     react-scripts: 4.0.1
     typeface-roboto: 1.1.13
     typescript: 4.1.2
-    web-vitals: 0.2.4
     webpack-bundle-analyzer: 4.2.0
   languageName: unknown
   linkType: soft
@@ -16565,13 +16564,6 @@ typescript@4.1.2:
   dependencies:
     minimalistic-assert: ^1.0.0
   checksum: 5916a49cb25fc8c70e4e7eb2d01955061132687a79879292fbdee632952f368c12bc5a641d0404794dbc0e3563f8b6e74dda04467b3e96be8bcd0b919bd47a8c
-  languageName: node
-  linkType: hard
-
-"web-vitals@npm:0.2.4":
-  version: 0.2.4
-  resolution: "web-vitals@npm:0.2.4"
-  checksum: f7565075a9a57428656d848ba48fd85dfebe6af1a82c77f947b5112838b6e14d0d76768f438e6b25cef3fb57f8d5b3595b0bbc20e2c9bdf9761fd0a2c138ca61
   languageName: node
   linkType: hard
 
