@@ -26,14 +26,23 @@
     ]
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "bundle-analyzer": {
     "files": [
       {
@@ -44,37 +53,37 @@
   },
   "dependencies": {
     "@blockstack/stacks-transactions": "0.7.0",
-    "@material-ui/core": "4.11.0",
-    "@material-ui/icons": "4.9.1",
-    "@material-ui/lab": "4.0.0-alpha.56",
-    "@material-ui/styles": "4.10.0",
+    "@material-ui/core": "4.11.2",
+    "@material-ui/icons": "4.11.2",
+    "@material-ui/lab": "4.0.0-alpha.57",
+    "@material-ui/styles": "4.11.2",
     "@otplib/preset-browser": "12.0.1",
-    "@sentry/browser": "5.26.0",
-    "@sentry/react": "5.26.0",
+    "@sentry/browser": "5.28.0",
+    "@sentry/react": "5.28.0",
     "blockstack": "21.1.1",
     "fathom-client": "3.0.0",
-    "query-string": "6.13.6",
-    "react": "16.14.0",
-    "react-dom": "16.14.0",
-    "react-is": "16.13.1",
+    "query-string": "6.13.7",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "react-is": "17.0.1",
     "react-qr-reader": "2.2.1",
     "typeface-roboto": "1.1.13"
   },
   "devDependencies": {
     "@blockstack/connect": "2.12.7",
     "@bundle-analyzer/webpack-plugin": "0.5.1",
-    "@craco/craco": "5.7.0",
-    "@types/jest": "26.0.14",
-    "@types/node": "14.11.10",
+    "@craco/craco": "5.9.0",
+    "@types/jest": "26.0.16",
+    "@types/node": "14.14.10",
     "@types/query-string": "6.3.0",
-    "@types/react": "16.9.53",
-    "@types/react-dom": "16.9.8",
+    "@types/react": "17.0.0",
+    "@types/react-dom": "17.0.0",
     "@types/react-qr-reader": "2.1.3",
-    "husky": "4.3.0",
-    "lint-staged": "10.4.2",
-    "prettier": "2.1.2",
-    "react-scripts": "3.4.3",
-    "typescript": "4.0.3",
-    "webpack-bundle-analyzer": "3.9.0"
+    "husky": "4.3.1",
+    "lint-staged": "10.5.2",
+    "prettier": "2.2.1",
+    "react-scripts": "4.0.1",
+    "typescript": "4.1.2",
+    "webpack-bundle-analyzer": "4.2.0"
   }
 }
