@@ -43,14 +43,6 @@
       "last 1 safari version"
     ]
   },
-  "bundle-analyzer": {
-    "files": [
-      {
-        "test": "static/js/*.js",
-        "maxSize": "650 KB"
-      }
-    ]
-  },
   "dependencies": {
     "@blockstack/stacks-transactions": "0.7.0",
     "@material-ui/core": "4.11.2",
@@ -73,7 +65,6 @@
     "typeface-roboto": "1.1.13"
   },
   "devDependencies": {
-    "@bundle-analyzer/webpack-plugin": "0.5.1",
     "@craco/craco": "6.0.0",
     "@types/jest": "26.0.20",
     "@types/node": "14.14.21",
