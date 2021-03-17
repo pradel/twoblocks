@@ -55,7 +55,6 @@
     "@stacks/auth": "1.2.3",
     "@stacks/connect": "5.0.3",
     "@stacks/storage": "1.2.3",
-    "blockstack": "21.1.1",
     "fathom-client": "3.0.0",
     "query-string": "6.14.1",
     "react": "17.0.1",
