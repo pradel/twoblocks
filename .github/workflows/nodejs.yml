@@ -26,7 +26,5 @@ jobs:
         run: yarn install --immutable
       - name: Build
         run: yarn build
-        env:
-          BUNDLE_ANALYZER_TOKEN: ${{ secrets.BUNDLE_ANALYZER_TOKEN }}
       - name: Run tests
         run: yarn test

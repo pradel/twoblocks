@@ -1,9 +1,6 @@
 import React from 'react';
 import { Theme, Typography, Link, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
-import * as Fathom from 'fathom-client';
-import { useConnect } from '@blockstack/connect';
-import { Goals } from '../utils/fathom';
 
 const useStyles = makeStyles((theme: Theme) => ({
   hero: {
@@ -46,14 +43,12 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-export const Login = () => {
-  const classes = useStyles();
-  const { doOpenAuth } = useConnect();
+interface LoginProps {
+  onLogin: () => void;
+}
 
-  const handleLogin = () => {
-    Fathom.trackGoal(Goals.LOGIN, 0);
-    doOpenAuth();
-  };
+export const Login = ({ onLogin }: LoginProps) => {
+  const classes = useStyles();
 
   return (
     <React.Fragment>
@@ -82,7 +77,7 @@ export const Login = () => {
               </Link>
               . Protect yourself online!
             </Typography>
-            <Button variant="contained" color="primary" onClick={handleLogin}>
+            <Button variant="contained" color="primary" onClick={onLogin}>
               Get started
             </Button>
           </div>

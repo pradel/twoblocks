@@ -1,5 +1,5 @@
 import { Account } from '../types';
-import { userSession } from './blockstack';
+import { storage } from './blockstack';
 
 const fileName = '2fa.json';
 
@@ -14,7 +14,7 @@ export interface File {
 export const getFile = async (): Promise<File> => {
   let file;
   try {
-    file = (await userSession.getFile(fileName)) as any;
+    file = (await storage.getFile(fileName)) as any;
   } catch (error) {
     // If 404 it means user is using the app for the first time
     if (error.code !== 'does_not_exist') {
@@ -37,5 +37,5 @@ export const getFile = async (): Promise<File> => {
  * Save the file on the storage
  */
 export const putFile = async (file: File): Promise<void> => {
-  await userSession.putFile(fileName, JSON.stringify(file));
+  await storage.putFile(fileName, JSON.stringify(file));
 };

@@ -1,16 +1,17 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import * as Sentry from '@sentry/react';
 import { ThemeProvider } from '@material-ui/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
 import * as Fathom from 'fathom-client';
-import { Connect, AuthOptions } from '@blockstack/connect';
+import { showConnect } from '@stacks/connect';
 import { Login } from './components/Login';
 import { Home } from './components/Home';
 import { Loader } from './components/Loader';
 import { ThemeContext, themeStorageKey } from './context/ThemeContext';
 import { FileContextProvider } from './context/FileContext';
 import { userSession } from './utils/blockstack';
+import { Goals } from './utils/fathom';
 import { config } from './config';
 
 // Track when page is loaded
@@ -48,18 +49,20 @@ const App = () => {
     localStorage.setItem(themeStorageKey, data);
   };
 
-  const authOptions: AuthOptions = {
-    redirectTo: '/',
-    appDetails: {
-      name: 'Twoblocks',
-      icon: 'https://twoblocks.leopradel.com/icon-192x192.png',
-    },
-    userSession,
-    finished: () => {
-      setLoggingIn(false);
-      setLoggedIn(true);
-    },
-  };
+  const handleLogin = useCallback(() => {
+    Fathom.trackGoal(Goals.LOGIN, 0);
+    showConnect({
+      redirectTo: '/',
+      appDetails: {
+        name: 'Twoblocks',
+        icon: 'https://twoblocks.leopradel.com/icon-192x192.png',
+      },
+      finished: () => {
+        setLoggingIn(false);
+        setLoggedIn(true);
+      },
+    });
+  }, [setLoggingIn]);
 
   useEffect(() => {
     if (userSession.isSignInPending()) {
@@ -77,21 +80,19 @@ const App = () => {
   }, []);
 
   return (
-    <Connect authOptions={authOptions}>
-      <ThemeProvider theme={muiTheme}>
-        <ThemeContext.Provider value={theme}>
-          <CssBaseline />
-          <FathomTrack />
-          {!loggingIn && !loggedIn && <Login />}
-          {!loggingIn && loggedIn && (
-            <FileContextProvider>
-              <Home setTheme={handleChangeTheme} />
-            </FileContextProvider>
-          )}
-          {loggingIn && <Loader />}
-        </ThemeContext.Provider>
-      </ThemeProvider>
-    </Connect>
+    <ThemeProvider theme={muiTheme}>
+      <ThemeContext.Provider value={theme}>
+        <CssBaseline />
+        <FathomTrack />
+        {!loggingIn && !loggedIn && <Login onLogin={handleLogin} />}
+        {!loggingIn && loggedIn && (
+          <FileContextProvider>
+            <Home setTheme={handleChangeTheme} />
+          </FileContextProvider>
+        )}
+        {loggingIn && <Loader />}
+      </ThemeContext.Provider>
+    </ThemeProvider>
   );
 };
 
