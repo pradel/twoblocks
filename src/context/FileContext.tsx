@@ -1,4 +1,4 @@
-import React, { createContext, useReducer, useEffect } from 'react';
+import { createContext, useReducer, useEffect } from 'react';
 import * as Fathom from 'fathom-client';
 import { File, getFile, putFile } from '../utils/accounts';
 import { Account } from '../types';

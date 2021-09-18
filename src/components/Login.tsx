@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   container: {
     marginLeft: theme.spacing(4),
     marginRight: theme.spacing(4),
+    // @ts-ignore
     [theme.breakpoints.up('sm')]: {
       display: 'flex',
       flexDirection: 'row',
@@ -21,6 +22,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
+    // @ts-ignore
     [theme.breakpoints.up('sm')]: {
       flex: 1.2,
       paddingRight: theme.spacing(8),
@@ -33,6 +35,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   screen: {
     flex: 1,
     marginTop: theme.spacing(4),
+    // @ts-ignore
     [theme.breakpoints.up('sm')]: {
       marginTop: 0,
     },
