@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import * as Sentry from '@sentry/react';
 import { ThemeProvider } from '@material-ui/styles';
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createTheme } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
 import * as Fathom from 'fathom-client';
 import { Connect, AuthOptions } from '@blockstack/connect';
@@ -35,7 +35,7 @@ const App = () => {
 
   const muiTheme = useMemo(
     () =>
-      createMuiTheme({
+      createTheme({
         palette: {
           type: theme,
         },
