@@ -8,19 +8,15 @@
     "test": "echo TODO",
     "testonly": "craco test",
     "analyze": "ANALYZE=true yarn build",
-    "prettier": "prettier --write '**/*.{js,ts,tsx}'"
+    "prettier": "prettier --write '**/*.{json,md,js,ts,jsx,tsx,yml,css}'",
+    "postinstall": "husky install"
   },
   "prettier": {
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
-    "*.{js,ts,tsx,md}": [
+    "*.{json,md,js,ts,jsx,tsx,yml,css}": [
       "prettier --write",
       "git add"
     ]
@@ -70,8 +66,8 @@
     "@types/react": "17.0.21",
     "@types/react-dom": "17.0.9",
     "@types/react-qr-reader": "2.1.4",
-    "husky": "4.3.1",
-    "lint-staged": "10.5.2",
+    "husky": "7.0.2",
+    "lint-staged": "11.1.2",
     "prettier": "2.4.1",
     "react-scripts": "4.0.3",
     "typescript": "4.4.3",
