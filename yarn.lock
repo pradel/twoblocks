@@ -871,7 +871,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stacks/auth@npm:1.2.3, @stacks/auth@npm:^1.0.2, @stacks/auth@npm:^1.2.3":
+"@stacks/auth@npm:2.0.1":
+  version: 2.0.1
+  resolution: "@stacks/auth@npm:2.0.1"
+  dependencies:
+    "@stacks/common": ^2.0.1
+    "@stacks/encryption": ^2.0.1
+    "@stacks/network": ^2.0.1
+    "@stacks/profile": ^2.0.1
+    c32check: ^1.1.2
+    cross-fetch: ^3.1.4
+    jsontokens: ^3.0.0
+    query-string: ^6.13.1
+  checksum: 5bae36457baef805629cc6f9bf4154ba673a1a17284e17d2724aa8e1e98cfbe12b161b074c975f58a2acd696bfb47ca1bc2af92f9c4acf758999c4c9f70ab707
+  languageName: node
+  linkType: hard
+
+"@stacks/auth@npm:^1.2.3":
   version: 1.2.3
   resolution: "@stacks/auth@npm:1.2.3"
   dependencies:
@@ -896,26 +912,42 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stacks/connect-ui@npm:^3.0.3":
-  version: 3.0.3
-  resolution: "@stacks/connect-ui@npm:3.0.3"
+"@stacks/common@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "@stacks/common@npm:2.0.1"
   dependencies:
-    "@stencil/core": ^1.17.3
-  checksum: 40a665e21d94f375da1a5b46e574deda5c59063d3a5afc6003daad98c89389816d7e76db8632b2c39d846d52586e425eaef79e93eed480defb88809ef00bc25c
+    "@types/node": ^14.14.43
+    bn.js: ^5.2.0
+    buffer: ^6.0.3
+    cross-fetch: ^3.1.4
+  checksum: 6c1364dfdc5bc6a12aff29cde3117387fb48387415481f9776a61695c7d3d892ba3214b0bb0f37ee2a6ba217f4f2ef5a91c1d7abf14843f9006c6ac42ea734c7
   languageName: node
   linkType: hard
 
-"@stacks/connect@npm:5.0.3":
-  version: 5.0.3
-  resolution: "@stacks/connect@npm:5.0.3"
+"@stacks/connect-ui@npm:5.2.0":
+  version: 5.2.0
+  resolution: "@stacks/connect-ui@npm:5.2.0"
   dependencies:
-    "@stacks/auth": ^1.0.2
-    "@stacks/connect-ui": ^3.0.3
-    "@stacks/network": ^1.0.2
-    "@stacks/transactions": ^1.1.1-alpha.0
-    buffer: 5.6.0
+    "@stencil/core": ^2.6.0
+  checksum: fe8802fbc359667450f49b38647d5be614efc2216fe395851cb261141fa03315cd1806528ece107f7eee1ec0eb0bbb7e08b4ce565f8f340cc284789f48ffc4cf
+  languageName: node
+  linkType: hard
+
+"@stacks/connect@npm:6.2.0":
+  version: 6.2.0
+  resolution: "@stacks/connect@npm:6.2.0"
+  dependencies:
+    "@stacks/auth": 2.0.1
+    "@stacks/connect-ui": 5.2.0
+    "@stacks/network": 2.0.1
+    "@stacks/prettier-config": 0.0.8
+    "@stacks/transactions": 2.0.1
+    bn.js: ^5.2.0
+    buffer: 6.0.3
     jsontokens: ^3.0.0
-  checksum: ecdfb709441899fe76bb820e6705f68e22be63d0b909541e040ca6aa410ed5ff9c98eeeb8a8b18e984ccb4ef6a07b8fdcfc19b31dbc1b288fde96c18a796ad7e
+    readable-stream: ^3.6.0
+    url: ^0.11.0
+  checksum: 696e960efc93c62aef077aac7f08aea809e773e55601751f212a64bac94e3111bb64e081a6a9e54e7b602c90d869bf34b5e08ac1d810549bf92333549e6fa2fd
   languageName: node
   linkType: hard
 
@@ -935,12 +967,48 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stacks/network@npm:^1.0.2, @stacks/network@npm:^1.2.2":
+"@stacks/encryption@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "@stacks/encryption@npm:2.0.1"
+  dependencies:
+    "@stacks/common": ^2.0.1
+    "@types/bn.js": ^4.11.6
+    "@types/node": ^14.14.43
+    bip39: ^3.0.2
+    bitcoinjs-lib: ^5.2.0
+    bn.js: ^4.12.0
+    elliptic: ^6.5.4
+    randombytes: ^2.1.0
+    ripemd160-min: ^0.0.6
+    sha.js: ^2.4.11
+  checksum: 0fc4f0e92bfb3859afc53ac9dd8a5cd0aa8be29762351fa77022d4f645dfe3c9ab043435b3465404e795bd54f2b1c19c71a5d4e2579264ad9163854702ff7835
+  languageName: node
+  linkType: hard
+
+"@stacks/network@npm:2.0.1, @stacks/network@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "@stacks/network@npm:2.0.1"
+  dependencies:
+    "@stacks/common": ^2.0.1
+  checksum: 8e23f6b9718e4665215d9c1e637e2f6c47a17633e369a37c5e581e19cf26d13b863534a5be345762e3d6589622c0c3cb8f6d66c6d4f72042854cfebceda122b4
+  languageName: node
+  linkType: hard
+
+"@stacks/network@npm:^1.2.2":
   version: 1.2.2
   resolution: "@stacks/network@npm:1.2.2"
   dependencies:
     "@stacks/common": ^1.2.2
   checksum: 00ea239749dd23d8a091342aabc14b65b226d2a2654f93dcfd44728e8cca3dc3f29efc3f95851456143c601f005421dbfc9c7cedfaeca3de1eb2a0fec0834bc0
+  languageName: node
+  linkType: hard
+
+"@stacks/prettier-config@npm:0.0.8":
+  version: 0.0.8
+  resolution: "@stacks/prettier-config@npm:0.0.8"
+  dependencies:
+    prettier: ^2.3.0
+  checksum: 387e6d52df9377e618778bae2b3d94c5bf6b389eda5fd9e30227463c3240617d089623d00b2ee165f00951a3276fb1c6cb80a2e6941c3937a3111a00d0fd7f4c
   languageName: node
   linkType: hard
 
@@ -959,49 +1027,63 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stacks/storage@npm:1.2.3":
-  version: 1.2.3
-  resolution: "@stacks/storage@npm:1.2.3"
+"@stacks/profile@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "@stacks/profile@npm:2.0.1"
   dependencies:
-    "@stacks/auth": ^1.2.3
-    "@stacks/common": ^1.2.2
-    "@stacks/encryption": ^1.2.3
-  checksum: 976f657761802e23c0f705a305b9bd266a55bc2a5cd756f044222ffa234e00fc51bb9aa683505f04c87cad112405cc1a1e9420b179b68e271c81348007b4da77
+    "@stacks/common": ^2.0.1
+    "@stacks/network": ^1.2.2
+    "@stacks/transactions": ^2.0.1
+    jsontokens: ^3.0.0
+    schema-inspector: ^2.0.1
+    zone-file: ^1.0.0
+  checksum: a3b9fb544f2b1e54a4e65706909fde5b1626fe6367680b0babb9ef4eedfa22aa9d6615e76aff1a933e60930328b6fa0a0c2a8ec48752012a9c35ff42d91f9787
   languageName: node
   linkType: hard
 
-"@stacks/transactions@npm:^1.1.1-alpha.0":
-  version: 1.4.1
-  resolution: "@stacks/transactions@npm:1.4.1"
+"@stacks/storage@npm:2.0.1":
+  version: 2.0.1
+  resolution: "@stacks/storage@npm:2.0.1"
   dependencies:
-    "@stacks/common": ^1.2.2
+    "@stacks/auth": ^1.2.3
+    "@stacks/common": ^2.0.1
+    "@stacks/encryption": ^2.0.1
+    bitcoinjs-lib: ^5.2.0
+    jsontokens: ^3.0.0
+  checksum: 4e19460826b94862e08f2d73cc4f4e8ba92539f9afa22f3a2ed1417273cf7bd3fd0320139f8b3f1b4ac10072dbe4ef206515d6b7046b3f052ee155bf6bbd6023
+  languageName: node
+  linkType: hard
+
+"@stacks/transactions@npm:2.0.1, @stacks/transactions@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "@stacks/transactions@npm:2.0.1"
+  dependencies:
+    "@stacks/common": ^2.0.1
     "@stacks/network": ^1.2.2
     "@types/bn.js": ^4.11.6
     "@types/elliptic": ^6.4.12
+    "@types/node": ^14.14.43
     "@types/randombytes": ^2.0.0
     "@types/sha.js": ^2.4.0
-    bn.js: ^4.11.9
-    c32check: ^1.1.1
-    cross-fetch: ^3.0.5
-    elliptic: ^6.5.3
+    bn.js: ^4.12.0
+    c32check: ^1.1.2
+    cross-fetch: ^3.1.4
+    elliptic: ^6.5.4
     lodash: ^4.17.20
-    lodash-es: 4.17.20
     randombytes: ^2.1.0
     ripemd160-min: ^0.0.6
     sha.js: ^2.4.11
     smart-buffer: ^4.1.0
-  checksum: 39e63f7bd155565b0a37c725cd281223cc12baa4bbef12185e36bac0faa64858f2c2ef9951a04793726f603dc618453be7b6d3049a16e308cfd657cb89418e0b
+  checksum: d20df04583734b7e42b479b17b0f62a26bbddd8499b357ac1f5e2681036b4922d59dd315aeb71390ca842a4bca748470dd0f0614f4bb0bda17cde5f34471d104
   languageName: node
   linkType: hard
 
-"@stencil/core@npm:^1.17.3":
-  version: 1.17.4
-  resolution: "@stencil/core@npm:1.17.4"
-  dependencies:
-    typescript: 3.9.7
+"@stencil/core@npm:^2.6.0":
+  version: 2.8.1
+  resolution: "@stencil/core@npm:2.8.1"
   bin:
     stencil: bin/stencil
-  checksum: 94b4335a60aabe23622ffa0cb6805252ee8bd6eeeeeb65cd1614630ecae64089ec5faa568adf595f478e17fed016b4e7ebd15d1a29ca1f554ecc7b1cc9ecf714
+  checksum: 0a75e65ea8a2b3f39c6a0981a5e82e9fb21499a706cf4bc7f63fcb11ede22ae9de2a1c63450d1ede5a9957bcadada6a97ae3be9f5d9d384e4f715f47b9bfe69a
   languageName: node
   linkType: hard
 
@@ -1213,7 +1295,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:14.17.17":
+"@types/node@npm:14.17.17, @types/node@npm:^14.14.43":
   version: 14.17.17
   resolution: "@types/node@npm:14.17.17"
   checksum: ec17a5662e8e4dafbf5c7b577b390811f521ea984525c8fae3b90b14222a61832161c74c9a335abe8ef01a59adba578498298a9ccee0d84d71285680f5bc135a
@@ -1885,7 +1967,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bitcoinjs-lib@npm:^5.1.10":
+"bitcoinjs-lib@npm:^5.1.10, bitcoinjs-lib@npm:^5.2.0":
   version: 5.2.0
   resolution: "bitcoinjs-lib@npm:5.2.0"
   dependencies:
@@ -1908,14 +1990,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bn.js@npm:^4.0.0, bn.js@npm:^4.1.0, bn.js@npm:^4.11.8, bn.js@npm:^4.11.9":
+"bn.js@npm:^4.0.0, bn.js@npm:^4.1.0, bn.js@npm:^4.11.8, bn.js@npm:^4.11.9, bn.js@npm:^4.12.0":
   version: 4.12.0
   resolution: "bn.js@npm:4.12.0"
   checksum: 39afb4f15f4ea537b55eaf1446c896af28ac948fdcf47171961475724d1bb65118cca49fa6e3d67706e4790955ec0e74de584e45c8f1ef89f46c812bee5b5a12
   languageName: node
   linkType: hard
 
-"bn.js@npm:^5.0.0, bn.js@npm:^5.1.1, bn.js@npm:^5.1.2":
+"bn.js@npm:^5.0.0, bn.js@npm:^5.1.1, bn.js@npm:^5.1.2, bn.js@npm:^5.2.0":
   version: 5.2.0
   resolution: "bn.js@npm:5.2.0"
   checksum: 6117170393200f68b35a061ecbf55d01dd989302e7b3c798a3012354fa638d124f0b2f79e63f77be5556be80322a09c40339eda6413ba7468524c0b6d4b4cb7a
@@ -2073,6 +2155,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"buffer@npm:6.0.3, buffer@npm:^6.0.3":
+  version: 6.0.3
+  resolution: "buffer@npm:6.0.3"
+  dependencies:
+    base64-js: ^1.3.1
+    ieee754: ^1.2.1
+  checksum: 5ad23293d9a731e4318e420025800b42bf0d264004c0286c8cc010af7a270c7a0f6522e84f54b9ad65cbd6db20b8badbfd8d2ebf4f80fa03dab093b89e68c3f9
+  languageName: node
+  linkType: hard
+
 "buffer@npm:^4.3.0":
   version: 4.9.2
   resolution: "buffer@npm:4.9.2"
@@ -2108,7 +2200,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"c32check@npm:^1.1.1":
+"c32check@npm:^1.1.1, c32check@npm:^1.1.2":
   version: 1.1.2
   resolution: "c32check@npm:1.1.2"
   dependencies:
@@ -2479,7 +2571,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cross-fetch@npm:^3.0.5, cross-fetch@npm:^3.0.6":
+"cross-fetch@npm:^3.0.5, cross-fetch@npm:^3.0.6, cross-fetch@npm:^3.1.4":
   version: 3.1.4
   resolution: "cross-fetch@npm:3.1.4"
   dependencies:
@@ -2771,7 +2863,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"elliptic@npm:^6.4.0, elliptic@npm:^6.4.1, elliptic@npm:^6.5.2, elliptic@npm:^6.5.3":
+"elliptic@npm:^6.4.0, elliptic@npm:^6.4.1, elliptic@npm:^6.5.2, elliptic@npm:^6.5.3, elliptic@npm:^6.5.4":
   version: 6.5.4
   resolution: "elliptic@npm:6.5.4"
   dependencies:
@@ -3771,7 +3863,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"ieee754@npm:^1.1.13, ieee754@npm:^1.1.4":
+"ieee754@npm:^1.1.13, ieee754@npm:^1.1.4, ieee754@npm:^1.2.1":
   version: 1.2.1
   resolution: "ieee754@npm:1.2.1"
   checksum: 5144c0c9815e54ada181d80a0b810221a253562422e7c6c3a60b1901154184f49326ec239d618c416c1c5945a2e197107aee8d986a3dd836b53dffefd99b5e7e
@@ -4462,13 +4554,6 @@ fsevents@~2.3.1:
   dependencies:
     p-locate: ^4.1.0
   checksum: 83e51725e67517287d73e1ded92b28602e3ae5580b301fe54bfb76c0c723e3f285b19252e375712316774cf52006cb236aed5704692c32db0d5d089b69696e30
-  languageName: node
-  linkType: hard
-
-"lodash-es@npm:4.17.20":
-  version: 4.17.20
-  resolution: "lodash-es@npm:4.17.20"
-  checksum: 209a749a5c50feaf50db16bcd99c41a945568bc2efe07c16b250add982bdfaf57d2e4930d6556a1220ec9c52578ba9fcf533a351704e09a6fe29d137d440d3fb
   languageName: node
   linkType: hard
 
@@ -5449,7 +5534,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"prettier@npm:2.4.1, prettier@npm:^2.0.5":
+"prettier@npm:2.4.1, prettier@npm:^2.0.5, prettier@npm:^2.3.0":
   version: 2.4.1
   resolution: "prettier@npm:2.4.1"
   bin:
@@ -6002,6 +6087,15 @@ resolve@^2.0.0-next.3:
   dependencies:
     async: ~2.6.3
   checksum: e21eef460ad1666f8de44d843ce122114d09e5a5bdf930b3cf2af970ccc1b1933b79c2af9c1c508a3c5399d1660196ba61d5201493f9c4b559af78905ab78087
+  languageName: node
+  linkType: hard
+
+"schema-inspector@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "schema-inspector@npm:2.0.1"
+  dependencies:
+    async: ~2.6.3
+  checksum: 04582f68cab1d831d09c397b1cbc29ee4123e9348f6bb9a63dc8c0436f07a51458e73b861608923b44775243d5d939e4561e77d876ef4b8238362030d8cb0c2c
   languageName: node
   linkType: hard
 
@@ -6839,9 +6933,9 @@ resolve@^2.0.0-next.3:
     "@otplib/preset-browser": 12.0.1
     "@sentry/browser": 5.28.0
     "@sentry/react": 5.28.0
-    "@stacks/auth": 1.2.3
-    "@stacks/connect": 5.0.3
-    "@stacks/storage": 1.2.3
+    "@stacks/auth": 2.0.1
+    "@stacks/connect": 6.2.0
+    "@stacks/storage": 2.0.1
     "@types/node": 14.17.17
     "@types/query-string": 6.3.0
     "@types/react": 17.0.21
@@ -6915,16 +7009,6 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-typescript@3.9.7:
-  version: 3.9.7
-  resolution: "typescript@npm:3.9.7"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: d549bf1d3a93796b45be9d1dbebbef63777f8cc4d788461f4bfdb6cb07371a97d3e471c7f39dbe31107e8a25d6d8b2ef5e967af7e8e1768d9560bd95095b360b
-  languageName: node
-  linkType: hard
-
 typescript@4.4.3:
   version: 4.4.3
   resolution: "typescript@npm:4.4.3"
@@ -6932,16 +7016,6 @@ typescript@4.4.3:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 05823f21796d450531a7e4ab299715d38fd9ded0e4ce7400876053f4b5166ca3dde7a68cecfe72d9086039f03c0b6edba36516fb10ed83c5837d9600532ea4c2
-  languageName: node
-  linkType: hard
-
-"typescript@patch:typescript@3.9.7#~builtin<compat/typescript>":
-  version: 3.9.7
-  resolution: "typescript@patch:typescript@npm%3A3.9.7#~builtin<compat/typescript>::version=3.9.7&hash=32657b"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 46b87576ee37cc91c86965922ddef0fbee3ba49fc1627a9b6dce77cb41dc72d93f5643cefd175928a2d76e68189123e20c24db382d8b289ac6c27cfb4b7993a6
   languageName: node
   linkType: hard
 
