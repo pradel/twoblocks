@@ -1,9 +1,6 @@
 import React from 'react';
 import { Theme, Typography, Link, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
-import * as Fathom from 'fathom-client';
-import { useConnect } from '@blockstack/connect';
-import { Goals } from '../utils/fathom';
 
 const useStyles = makeStyles((theme: Theme) => ({
   hero: {
@@ -15,7 +12,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   container: {
     marginLeft: theme.spacing(4),
     marginRight: theme.spacing(4),
-    // @ts-ignore
     [theme.breakpoints.up('sm')]: {
       display: 'flex',
       flexDirection: 'row',
@@ -25,7 +21,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    // @ts-ignore
     [theme.breakpoints.up('sm')]: {
       flex: 1.2,
       paddingRight: theme.spacing(8),
@@ -38,7 +33,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   screen: {
     flex: 1,
     marginTop: theme.spacing(4),
-    // @ts-ignore
     [theme.breakpoints.up('sm')]: {
       marginTop: 0,
     },
@@ -49,14 +43,12 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-export const Login = () => {
-  const classes = useStyles();
-  const { doOpenAuth } = useConnect();
+interface LoginProps {
+  onLogin: () => void;
+}
 
-  const handleLogin = () => {
-    Fathom.trackGoal(Goals.LOGIN, 0);
-    doOpenAuth();
-  };
+export const Login = ({ onLogin }: LoginProps) => {
+  const classes = useStyles();
 
   return (
     <React.Fragment>
@@ -77,15 +69,15 @@ export const Login = () => {
               </Link>{' '}
               2fa manager built with{' '}
               <Link
-                href="https://blockstack.org"
+                href="https://www.stacks.co/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Blockstack
+                Stacks
               </Link>
               . Protect yourself online!
             </Typography>
-            <Button variant="contained" color="primary" onClick={handleLogin}>
+            <Button variant="contained" color="primary" onClick={onLogin}>
               Get started
             </Button>
           </div>

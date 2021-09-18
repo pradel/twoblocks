@@ -29,7 +29,9 @@
     "@otplib/preset-browser": "12.0.1",
     "@sentry/browser": "5.28.0",
     "@sentry/react": "5.28.0",
-    "blockstack": "21.1.1",
+    "@stacks/auth": "2.0.1",
+    "@stacks/connect": "6.2.0",
+    "@stacks/storage": "2.0.1",
     "fathom-client": "3.2.0",
     "next": "11.1.2",
     "query-string": "6.14.1",
@@ -40,7 +42,6 @@
     "typeface-roboto": "1.1.13"
   },
   "devDependencies": {
-    "@blockstack/connect": "2.12.7",
     "@types/node": "14.17.17",
     "@types/query-string": "6.3.0",
     "@types/react": "17.0.21",
