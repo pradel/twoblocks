@@ -1,6 +1,0 @@
-# Redirect default Netlify subdomain to primary domain
-https://twoblocks.netlify.com/* https://twoblocks.leopradel.com/:splat 301!
-
-# We allow blockstack to get our manifest.json file
-/manifest.json
-  Access-Control-Allow-Origin: *

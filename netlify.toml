@@ -1,8 +1,9 @@
 [build]
   base = "."
-  publish = "build"
+  command = "yarn build && yarn next export"
+  publish = "out"
 
 [build.environment]
-  NODE_VERSION = "12"
-  YARN_VERSION = "1.22.4"
+  NODE_VERSION = "14"
+  YARN_VERSION = "1.22.11"
   YARN_FLAGS = "--immutable"
