@@ -57,7 +57,7 @@ const App = () => {
         name: 'Twoblocks',
         icon: 'https://twoblocks.leopradel.com/icon-192x192.png',
       },
-      finished: () => {
+      onFinish: () => {
         setLoggingIn(false);
         setLoggedIn(true);
       },

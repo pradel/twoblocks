@@ -119,7 +119,7 @@ export const Home = ({ setTheme }: Props) => {
           <IconButton
             aria-owns={anchorEl ? 'main-menu' : undefined}
             aria-haspopup="true"
-            onClick={(event: any) => setAnchorEl(event.currentTarget)}
+            onClick={(event) => setAnchorEl(event.currentTarget)}
             color="inherit"
           >
             <MoreVert fontSize="small" />
