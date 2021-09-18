@@ -1,6 +1,5 @@
 const BundleAnalyzerPlugin =
   require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const BundleAnalyzerPluginReporter = require('@bundle-analyzer/webpack-plugin');
 
 module.exports = {
   devServer: (devServerConfig) => {
@@ -19,13 +18,6 @@ module.exports = {
         webpackConfig.plugins.push(new BundleAnalyzerPlugin());
       }
 
-      if (process.env.BUNDLE_ANALYZER_TOKEN) {
-        webpackConfig.plugins.push(
-          new BundleAnalyzerPluginReporter({
-            token: process.env.BUNDLE_ANALYZER_TOKEN,
-          })
-        );
-      }
       return webpackConfig;
     },
   },
