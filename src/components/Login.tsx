@@ -69,11 +69,11 @@ export const Login = ({ onLogin }: LoginProps) => {
               </Link>{' '}
               2fa manager built with{' '}
               <Link
-                href="https://blockstack.org"
+                href="https://www.stacks.co/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Blockstack
+                Stacks
               </Link>
               . Protect yourself online!
             </Typography>

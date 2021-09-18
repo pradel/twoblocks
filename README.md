@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  Free and open source 2fa manager built with Blockstack
+  Free and open source 2fa manager built with Stacks
 </p>
 
 <p align="center">
@@ -23,7 +23,7 @@
 - Use your phone / laptop camera to scan a qrcode
 - Add an account manually
 - Dark theme
-- Data stored encrypted on the storage of your choice using Blockstack
+- Data stored encrypted on the storage of your choice using Stacks
 
 ## 📚 Setup
 
